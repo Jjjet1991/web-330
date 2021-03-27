@@ -1,0 +1,199 @@
+/*
+=====================================================
+; Title: Assignment 2.3
+; Author: Professor Krasso
+; Date 17 January 2021
+; Modified By: Jourdan Neal
+; Description:Global CSS page. 
+=====================================================
+*/
+
+/*Entire site font body style.*/
+html, body {
+    font-family: "Oswald", Verdana, Arial, sans-serif;
+}
+
+/**Style for container that everything is entered in.*/
+#container {
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 10px;
+}
+/*Color and style setting for headers.*/
+h1,h2,h3,h4 {
+    background-color:#3C275A;
+    color:white;
+    border: solid 1px #D6A800;
+    padding :10px;
+}
+
+/*Style for anchor tag- unvisited link.*/
+a {
+    color: #453674;
+    text-decoration: none;
+}
+
+/*Style for anchor tag hover.*/
+a:hover {
+    background-color:#D6A800;
+    color: #4F3674;
+}
+
+/*Style for anchor tag once visited.*/
+a:active {
+    color: #3C275A;
+}
+
+/*Styling for return home anchor tag linking to index page.*/
+.return-home {
+    color: #4F3674;
+}
+
+/*Styling for return-home hover.*/
+.return-home:hover {
+    background-color: #D6A800;
+    color: #4F3674;
+}
+
+/*Styling for return-home visited.*/
+.return-home:active {
+    color:#3C275A;
+
+}
+
+/*Added from Web-200 Assignments*/
+
+/*Card styling for width, margins, shadow*/
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0,0.2);
+    transition: 0.3s;
+    width:600px;
+    margin: 3% auto 0;
+
+}
+/*Card styling for card-title.*/
+.card-title {
+    text-align :center;
+    font-size: 2em;
+    color: #4F3674;
+    font-weight: 400;
+    
+
+}
+
+.card-content {
+    padding: 2px 16px;
+}
+
+/*Styling for form format.*/
+.form {
+    display:inline-grid;
+    grid-template-columns: auto;
+    margin: 3% auto 0;
+    
+}
+
+.form-field {
+    padding: 20px;
+}
+
+/*Purple, full width button styling.*/
+.btn {
+    border:none;
+    text-align:center;
+    text-decoration: none;
+    display:inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    padding: 15px 32px;
+    color:black;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #4F3674;
+    color:white;
+
+}
+/*Purple button-hoover affect.*/
+.btn-primary:hover {
+    background-color: #D6A800;
+    color: #4F3674;
+
+}
+
+.full-width {
+    width: 100%;
+}
+
+/*Styling for user input box.*/
+.input {
+    padding: 12px 20px;
+    margin: 8px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+/*
+=====================================================
+; Title: Assignment 1.3
+; Author: Professor Krasso
+; Date 9 January 2021
+; Modified By: Jourdan Neal
+; Description: Initial CSS for Landing.
+=====================================================
+*/
+
+/*body style*/
+html, body {
+    font-family: "Oswald", Verdana, Arial, sans-serif;
+}
+
+#container {
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+h1,h2,h3,h4 {
+    background-color:#3C275A;
+    color:white;
+    border: solid 1px #D6A800;
+    padding :10px;
+}
+
+/*unvisited link*/
+a {
+    color: #453674;
+    text-decoration: none;
+}
+
+/*hover*/
+a:hover {
+    background-color:#D6A800;
+    color: #4F3674;
+}
+
+/*visited link*/
+a:active {
+    color: #3C275A;
+}
+
+/*return home styling*/
+.return-home {
+    color: #4F3674;
+}
+
+/*return-home hover*/
+.return-home:hover {
+    background-color: #D6A800;
+    color: #4F3674;
+}
+
+/*return-home visited*/
+.return-home:active {
+    color:#3C275A;
+
+}

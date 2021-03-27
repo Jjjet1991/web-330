@@ -44,7 +44,7 @@ html, body {
     float: right;
 }
 
-/*App-header styling.*/
+/*h1,h2,h3,h4 styling.*/
 h1,h2,h3,h4 {
     background-color:#3C275A;
     color:white;
@@ -54,6 +54,7 @@ h1,h2,h3,h4 {
 /*Styling for return home anchor tag linking to index page.*/
 .return-home {
     color: #4F3674;
+    margin-left:460px;
 }
 
 /*Styling for return-home hover.*/
