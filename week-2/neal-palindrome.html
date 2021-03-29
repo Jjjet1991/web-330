@@ -10,66 +10,76 @@ Check with if statement to see if phrase returns as a palindrome.
 */-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-<meta charset="UTF-8">
-<!--Link to Site CSS.-->
-<link rel="stylesheet" href="../site.css">
-<!--Link to Theme CSS.-->
-<link rel="stylesheet" href="../theme.css">
-<!--Link to assignment Palindrome CSS-->
-<link rel="stylesheet" href="neal-palindrome.css">
-<!--Link for Google Fonts-->
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
-<!--Font-awesome CDN link.-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        
-<!--Title for page.-->
-<title>WEB 231 – Enterprise JavaScript I</title>
+  <meta charset="UTF-8">
+  <!--Link to Site CSS.-->
+  <link rel="stylesheet" href="../site.css">
+  <!--Link to Theme CSS.-->
+  <link rel="stylesheet" href="../theme.css">
+  <!--Link to assignment Palindrome CSS-->
+  <link rel="stylesheet" href="neal-palindrome.css">
+  <!--Link for Google Fonts-->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!--Font-awesome CDN link.-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!--Title for page.-->
+  <title>WEB 231 – Enterprise JavaScript I</title>
 </head>
+
 <body>
-    <!--Container for assignment.-->
-<div class="container">
+  <!--Container for assignment.-->
+  <div class="container">
     <!--App Header: Welcome to the Palindrome App!-->
-  <div class="app-header">Welcome to the Palindrome App!</div>
-  <!--Card for Palindrome Checker-->
+    <div class="app-header">Welcome to the Palindrome App!</div>
+    <!--Card for Palindrome Checker-->
     <div class="card">
-        <!--Card Title Palindrome Checker, centered, size 28px-->
-      <div class="card-title">Palindrome Checker</div> 
+      <!--Card Title Palindrome Checker, centered, size 28px-->
+      <div class="card-title">Palindrome Checker</div>
       <!--Card content for the checker form.-->
       <div class="card-content">
-          <!--Checker form.-->
-      <div class="form">
+        <!--Checker form.-->
+        <div class="form">
           <!--1st form field with input box and label.-->
-        <div class="form-field">
-          <label for="user word input">Phrase Value:</label>
-          <input type="text" class="input" id="txtPhrase">
-        </div><!--close form-field-->
-        <!--2nd form field containing purple full width button-->
-        <div class="form-field">
-          <button class= "btn btn-primary full-width" id="btnCheckPhrase">Check Phrase</button>
+          <div class="form-field">
+            <label for="user word input">Phrase Value:</label>
+            <input type="text" class="input" id="txtPhrase">
+          </div>
+          <!--close form-field-->
+          <!--2nd form field containing purple full width button-->
+          <div class="form-field">
+            <button class="btn btn-primary full-width" id="btnCheckPhrase">Check Phrase</button>
+          </div>
         </div>
-      </div><!--close form-->
-    </div><!--close card-content-->           
-  </div><!--close card-->
-  <!--Break for Return to home button to sit below the Palindrome Checker card.-->
-  <br/>
-  <a class="return-home" href="../index.html">Return</a>
-  <!--Card to display Palindrome results.-->
-  <div class = "card">
+        <!--close form-->
+      </div>
+      <!--close card-content-->
+    </div>
+    <!--close card-->
+    <!--Break for Return to home button to sit below the Palindrome Checker card.-->
+    <br />
+    <a class="return-home" href="../index.html">Return</a>
+    <!--Card to display Palindrome results.-->
+    <div class="card">
       <!--Results card-title: Palindrome Results-->
-    <div class="card-title">Palindrome Results</div>
+      <div class="card-title">Palindrome Results</div>
       <div class="card-content" id="assign-results-header">
-      </div><!--close card-content.-->
+      </div>
+      <!--close card-content.-->
       <div class="assign-results" id="results">
-     </div>
-  </div><!--close results card.-->
+      </div>
+    </div>
+    <!--close results card.-->
 
-</div><!--close container-->
+  </div>
+  <!--close container-->
 
-<!--Script link to theme.js.-->
-<script src = "../theme.js"></script>
-<!-- Script link to palindrome.js-->
-<script src = "neal-palindrome.js"></script>
+  <!--Script link to theme.js.-->
+  <script src="../theme.js"></script>
+  <!-- Script link to palindrome.js-->
+  <script src="neal-palindrome.js"></script>
 </body>
+
 </html>
