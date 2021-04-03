@@ -1,3 +1,10 @@
+/*; Title: Assignment 1.3 Environment Set Up
+; Author: Professor Krasso
+; Date 28 March 2021
+; Modified By: Jourdan Neal
+; Description: Palindrome checker. 
+=====================================================
+*/
 //Call function to setDefaultTheme.
 setDefaultTheme();
 
@@ -25,10 +32,25 @@ function toggleMode(x)//Toggle mode, on click event. Toggle body classList from 
     let iconMode = x.classList;
 
 
-    colorTheme.toggle("dark-theme");//Toggle document.body.ClassList (colorTheme) from light (default) to dark.
-    iconMode.toggle("fa-toggle-on");//Toggle iconMode (x.classList) to fa-toggle-on.
-    document.getElementById ("icon-text").innerHTML= "Dark Mode";
- 
+
+if (colorTheme.value === "light-theme"){
+    localStorage.clear();
+    localStorage.setItem("mode", "dark-theme");
+    localStorage.setItem("iconMode", "fa-toggle-on");
+    localStorage.setItem("iconText", "Dark Mode")
+} else 
+{
+    localStorage.clear();
+    localStorage.setItem("mode", "light-theme");
+    localStorage.setItem("iconMode", "fa-toggle-off");
+    localStorage.setItem("iconText", "Light Mode");
+
 }
+colorTheme.value= localStorage.getItem("mode");
+iconMode.value = `fa ${localStorage.getItem("iconMode")} pull-right`;
+document.getElementById("icon-text").innerHTML = localStorage.getItem("iconText");
+}
+ 
+
 
     
