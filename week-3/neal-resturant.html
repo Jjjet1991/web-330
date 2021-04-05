@@ -1,0 +1,207 @@
+<!--
+=====================================================
+; Title: Assignment 3.2 Restaurant App
+; Author: Professor Krasso
+; Date 4 April 2021
+; Modified By: Jourdan Neal
+; Description: Restaurant app, combining multiple js files using import.
+=====================================================
+*/-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!--Link to Site CSS.-->
+  <link rel="stylesheet" href="../site.css">
+  <!--Link to Theme CSS.-->
+  <link rel="stylesheet" href="../theme.css">
+  <link rel="stylesheet" href="resturant.css">
+  <!--Link for Google Fonts-->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!--Font-awesome CDN link.-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!--Title for page.-->
+  <title>WEB 231 – Enterprise JavaScript I</title>
+</head>
+<!--=========================================================================================-->
+
+<!--=========================================================================================-->
+
+<body>
+  <div class="container">
+    <!--Container to hold assignment.-->
+    <div class="app-header">Welcome to the Restaurant App!</div>
+    <!--App title.-->
+
+    <div class="card">
+      <div class="card-title">Restaurant Menu</div>
+      <!--=========================================================================================-->
+      <div class=" grid-container">
+        <div class=" card-mini grid-item">
+          <!--Beverage Card-->
+          <div class="card-title">Beverages</div>
+          <div class="card-content" id="beverage">
+            <!--Labels and checkboxes for beverage menu options.-->
+            <label for="soda">
+              <input type="checkbox" id="soda" name="soda">Soda ($3.30)
+            </label><br />
+            <label for="sweetTea">
+              <input type="checkbox" id="sweetTea" name="sweetTea">Sweet Tea ($3.30)
+            </label><br />
+            <label for="icedCoffee">
+              <input type="checkbox" id="icedCoffee" name="icedCoffee">Iced Coffee ($2.49)
+            </label><br />
+            <label for="bottledWater">
+              <input type="checkbox" id="bottledWater" name="bottledWater">Bottled Water ($2.15)
+            </label><br />
+          </div>
+        </div>
+        <!--=========================================================================================-->
+        <div class="card-mini grid-item">
+          <!--Appetizer Card-->
+          <div class="card-title">Appetizers</div>
+          <div class="card-content" id="appetizer">
+            <!--Labels and checkboxes for appetizer menu options.-->
+            <label for="nachos">
+              <input type="checkbox" id="nachos" name="nachos">Nachos ($6.60)
+            </label><br />
+            <label for="chipsSalsa">
+              <input type="checkbox" id="chipsSalsa" name="chipsSalsa">Chips and Salsa ($5.50)
+            </label><br />
+            <label for="pretzel">
+              <input type="checkbox" id="pretzel" name="pretzel">Pretzel and Cheese ($8.80)
+            </label><br />
+            <label for="friedPickles">
+              <input type="checkbox" id="friedPickles" name="friedPickles">Fried Pickles ($8.25)
+            </label><br />
+          </div>
+        </div>
+        <!--=========================================================================================-->
+        <div class="card-mini grid-item">
+          <!--Main Courses Card-->
+          <div class="card-title">Main Courses</div>
+          <div class="card-content" id="main-course">
+            <!--Labels and checkboxes for main course menu options.-->
+            <label for="tacos">
+              <input type="checkbox" id="tacos" name="tacos">Street Tacos ($9.70)
+            </label><br />
+            <label for="wings">
+              <input type="checkbox" id="wings" name="wings">Boneless Wings ($12.80)
+            </label><br />
+            <label for="burger">
+              <input type="checkbox" id="burger" name="burger">Cheese Burger with Fries ($12.65)
+            </label><br />
+            <label for="chicken">
+              <input type="checkbox" id="chicken" name="chicken">Chicken Wrap with Salad ($9.65)
+            </label><br />
+          </div>
+        </div>
+
+        <!--=========================================================================================-->
+        <div class="card-mini grid-item">
+          <!--Desserts-->
+          <div class="card-title">Desserts</div>
+          <div class="card-content" id="dessert">
+            <!--Labels and checkboxes for main course menu options.-->
+            <label for="icecream">
+              <input type="checkbox" id="icecream" name="icecream">Ice Cream ($4.30)
+            </label><br />
+            <label for="cake">
+              <input type="checkbox" id="cake" name="cake">Chocolate Cake ($5.40)
+            </label><br />
+            <label for="pie">
+              <input type="checkbox" id="pie" name="pie">Apple Pie ($3.80)
+            </label><br />
+
+            <button class="btn btn-primary full-width" id="btnOrder" onclick="returnTotal()">Place Order</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+
+    <!--=========================================================================================-->
+    <!--Break for Return to home button to sit below card.-->
+    <br />
+    <a class="return-home" href="../index.html">Return</a>
+
+    <!--=========================================================================================-->
+    <div class="card">
+      <div class="card-title">Order Total</div>
+      <div class="card-content" id="order-total"></div>
+    </div>
+
+    <!--=========================================================================================-->
+    <!--Script link to theme.js.-->
+    <script src="../theme.js"></script>
+
+    <script type="module">
+      import {
+        Bill,
+        Beverage,
+        MainCourse,
+        Dessert
+      } from "./index.js"; //Import module from index.js
+
+      //Call function to setDefaultTheme.
+        setDefaultTheme();
+        
+      //On-click event.
+     function returnTotal(){
+        
+
+        const mainCoursesEl = document.getElementById("main-courses");
+        const mainCourses = mainCoursesEl.getElementsByTagName("input");
+
+        const beverageEl = document.getElementById("beverage");
+        const beverage = beverageEl.getElementsByTagName("input");
+
+        const appetizerEl = document.getElementById("appetizer");
+        const appetizer = appetizerEl.getElementsByTagName("input");
+
+        const dessertEl = document.getElementById("dessert");
+        const dessert = dessertEl.getElementsByTagName("input");
+
+
+        //Call new instance of Bill class.
+        let newBill = new Bill
+          //For..it loop iterating through options to determine what is checked, to select correction function.
+          for (let mainCourse of mainCourses) {
+            if (mainCourse.checked) {
+              bill.addMainCourse(new MainCourse(mainCourse.name, mainCourse.value));
+            }
+          }
+
+          for (let beverage of beverages) {
+            if (beverage.checked) {
+              bill.addBeverage(new Beverage(beverage.name, beverage.value));
+            }
+          }
+
+          for (let appetizer of appetizers) {
+            if (appetizer.checked) {
+              bill.addAppetizer(new Appetizer(appetizer.name, appetizer.value));
+            }
+          }
+
+          for (let dessert of desserts) {
+            if (dessert.checked) {
+              bill.addDessert(new Dessert(dessert.name, dessert.value));
+            }
+          }
+          //Running getTotal(), assigning results to "order-total" div.
+          let totalForOrder = getTotal();
+          document.getElementById("order-total").innerHTML = `Your order total is ${totalForOrder}`
+        }//closing for running on-click function.
+
+    </script>
+
+
+    <!--=========================================================================================-->
+</body>
+
+</html>

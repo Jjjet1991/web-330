@@ -8,31 +8,54 @@
 =====================================================
 */
 
-import { Appetizer } from "./appetizer";
+//Create a class named Bill, export the class.
+export class Bill{
+    //Add properties for beverages, desserts, main courses, and appetizers.
+    constructor(_beverages, _desserts,_mainCourses, _appetizers){
+    //Assign properties to open array.
+    _beverages = [];
+    _desserts = [];
+    _mainCourses = [];
+    _appetizers = [];
+}
 
-//Create Bill class with 4 properties return an empty array.
-class Bill {
-    constructor( _beverages, _appetizers, _mainCourses, _desserts){
-        return [];
-//Add Beverage function, beverage parameter, will push to array.
-        addBeverage(beverage)
-        {
-            this._beverage.push(beverage);
+//Create addBeverage function, push to _beverages array
+addBeverage(beverage){
+    this._beverages.push(beverage);
+}
 
-        }
+//Create addDessert function, push to _beverages array
+addDessert(dessert){
+    this._desserts.push(dessert);
+}
 
-        addAppetizer(appetizers)
-        {
-            this._appetizers.push(appetizers);
-        }
+//Create getTotal() function.
+getTotal(){
+    let total = 0;
+    //For each loop iterating through _beverages array.
+    let beverageTotal = this._beverages.forEach(function(beverage)
+    {
+        total += parseFloat(beverage.price)
+    })
+        
+    //For each loop iterating through _desserts array.
+    let dessertTotal = this._desserts.forEach(function(dessert)
+    {
+        total += parseFloat(dessert.price)
+    })
 
-        addMainCourse(mainCourses)
-        {
-            this._mainCourses.push(mainCourses);
-        }
-        addMainCourse(dessert)
-        {
-            this._dessert.push(desserts);
-        }
-    }
+    //For each loop iterating through _appetizers array.
+    let appetizerTotal = this._appetizers.forEach(function(appetizer)
+    {
+        total += parseFloat(appetizer.price)
+    })
+
+    //For each loop iterating through _main-courses array.
+    let mainCourseTotal = this._mainCourses.forEach(function(mainCourse)
+    {
+        total += parseFloat(mainCourse.price)
+    })
+    //Return total value.
+    return total;
+}
 }
