@@ -115,7 +115,7 @@
               <input type="checkbox" id="pie" name="pie">Apple Pie ($3.80)
             </label><br />
 
-            <button class="btn btn-primary full-width" id="btnOrder" onclick="returnTotal()">Place Order</button>
+            <button class="btn btn-primary full-width" id="btnOrder">Place Order</button>
 
           </div>
         </div>
@@ -132,7 +132,7 @@
     <!--=========================================================================================-->
     <div class="card">
       <div class="card-title">Order Total</div>
-      <div class="card-content" id="order-total"></div>
+      <div class="card-content" id="orderTotal"></div>
     </div>
 
     <!--=========================================================================================-->
@@ -146,15 +146,13 @@
         MainCourse,
         Dessert
       } from "./index.js"; //Import module from index.js
-
       //Call function to setDefaultTheme.
         setDefaultTheme();
-        
       //On-click event.
-     function returnTotal(){
+     document.getElementById("btnOrder").onclick = function() {
         
 
-        const mainCoursesEl = document.getElementById("main-courses");
+        const mainCoursesEl = document.getElementById("main-course");
         const mainCourses = mainCoursesEl.getElementsByTagName("input");
 
         const beverageEl = document.getElementById("beverage");
@@ -195,7 +193,7 @@
           }
           //Running getTotal(), assigning results to "order-total" div.
           let totalForOrder = getTotal();
-          document.getElementById("order-total").innerHTML = `Your order total is ${totalForOrder}`
+          document.getElementById("orderTotal").innerHTML = `Your order total is ${totalForOrder}`
         }//closing for running on-click function.
 
     </script>

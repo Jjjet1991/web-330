@@ -9,12 +9,12 @@
 */
 
 //Import statement for Product class.
-import {Product} from "./products/js";
+import {Product} from "./products.js";
 
 ///Export Appetizer class, inherit Product object.
-export class Appetizer extends Products {
+export class Appetizer extends Product {
     constructor(name, price)
     {
-        super(name,price);
+        super(name, price);
     }
 }

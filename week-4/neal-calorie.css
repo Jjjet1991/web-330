@@ -1,0 +1,15 @@
+/*; Title: Assignment 4.2 Calorie Converter
+; Author: Professor Krasso
+; Date 11 April 2021
+; Modified By: Jourdan Neal
+; Description: Calorie converter with keyboard event.
+=====================================================
+*/
+ html{};
+
+ #foodList{
+     float: right;
+     color: #df546a;
+     font-size:12px;
+     letter-spacing: 2px;
+ }

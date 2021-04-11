@@ -1,0 +1,103 @@
+<!--/*; Title: Assignment 4.2 Calorie Converter
+; Author: Professor Krasso
+; Date 11 April 2021
+; Modified By: Jourdan Neal
+; Description: Calorie converter with keyboard event.
+=====================================================
+*/-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!--Link to Site CSS.-->
+  <link rel="stylesheet" href="../site.css">
+  <!--Link to Theme CSS.-->
+  <link rel="stylesheet" href="../theme.css">
+  <!--Link to assignment Calorie CSS-->
+  <link rel="stylesheet" href="neal-calorie.css">
+  <!--Link for Google Fonts-->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!--Font-awesome CDN link.-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      
+  <!--Title for page.-->
+  <title>WEB 231 – Enterprise JavaScript I</title>
+</head>
+<body>
+  <!--Container for assignment.-->
+  <div class="container">
+  <!--App Header: Welcome to the Palindrome App!-->
+  <div class="app-header">Welcome to the Calorie App!</div>
+  <!--Card for Palindrome Checker-->
+  <div class="card">
+      <!--Calorie Search Form Card with title.-->
+      <div class="card-title">Calorie Search Form</div>
+      <div class= form>
+          <!--Form field for input text box.-->
+        <div class="form-field">
+          <label for="enterFoodItem">Enter a food item:</label>
+          <input type="text" class= "input" id="txtFoodItem">
+          <span id=foodList></span>
+        </div>
+        <!--2nd form field containing purple full width button-->
+        <div class="form-field">
+        <button class="btn btn-primary full-width" id="btnSearch">Search</button>
+      </div>
+    </div>
+  </div>
+
+<!--Break for Return to home button to sit below the Palindrome Checker card.-->
+<br />
+<a class="return-home" href="../index.html">Return</a>
+
+  <!--Card for Search results with span tag containing foodList.-->
+  <div class="card">
+      <div class="card-title" >Search Results</div>
+      <div class="card-content"  id="searchResults">
+          <div class="table-header"><div>
+              <div class="table-body"></div>
+          </div>
+      </div>
+    </div>
+
+ 
+
+  </div><!--end for container-->
+
+  <script src="../theme.js"></script>
+  <script type= "module">
+      //Create an import statement for Calorie Converter.
+      import { CalorieConverter } from "./calorie-converter.js";
+      </script>
+      <script>
+
+    //Create variable txtFoodItemEl and assign it txtFoodItem.
+     var txtFoodItemEl = document.getElementById("txtFoodItem");
+
+    //Register on-click event for btnSearch.
+    document.getElementById("btnSearch").onclick = function() {
+
+    //Variable txtFoodItem set to value of txtFoodItem input box.
+    var txtFoodItem = document.getElementById("txtFoodItem").value;
+
+    //Call static find function- to lowercase.
+    var foods = CalorieConverter.find;
+//Declare tableData 
+   let tableData = "";
+
+    tableData  += "<table>";
+   //Loop over array.
+   for (var i = 0; i < foods.length; i++) {
+       tableData += "<tr>";
+       tableData += "<td>" + foods[i] + "</td>";
+       tableData += "</tr>";
+   }
+    tableData  += "</table>";
+
+    //Output table to
+document.getElementById("searchResults").innerHTML= tableData;
+    }
+</script>
+</body>
+</html>

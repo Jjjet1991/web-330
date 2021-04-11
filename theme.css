@@ -102,6 +102,12 @@ body.light-theme {
     --btn-hover-background-color: #D6A800;
     --btn-hover-color: #4F3674;
     --input-border-color: #ccc;
+    /*Adding table variables to light-theme class.*/
+    --table-header-background-color: #4F3674;
+    --table-header-color: #fff;
+    --table-border-color:#ddd;
+    --table-hover-background-color: #D6A800;
+    --table-hover-color: #4F3674;
 }
 /*CSS class for dark-theme with style variables.*/
 body.dark-theme {
@@ -122,6 +128,12 @@ body.dark-theme {
     --btn-hover-background-color: #7d4787;
     --btn-hover-color: #fff;
     --input-border-color: #303030;
+    /*Adding table variables to light-theme class.*/
+    --table-header-background-color: #d176E1;
+    --table-header-color: #fff;
+    --table-border-color:#303030;
+    --table-hover-background-color: #7D4787;
+    --table-hover-color: #fff;
 }
 
 
@@ -148,4 +160,38 @@ h2, h3, h4 {
     background-color: var(--heading-background-color);
     padding: 10px;
     border: solid 1px var(--heading-border-color);
+}
+
+
+/*------------------------------------------------------*/
+
+/*Styling for table: collapsed border, width and margin.*/
+table {
+    width:100%;
+    border-collapse:collapse;
+    margin-bottom: 30px;
+}
+/*Styling for table header, padding, txt align, txt and background color.*/
+th {
+    padding-top:12px;
+    padding-bottom:12px;
+    text-align: left;
+    background-color: var(--table-header-background-color);
+    color: var(--table-header-color);
+}
+
+th,td {
+    border: 1px solid var(--table-border-color);
+    padding-top: 9px; 
+    padding-bottom:9px;
+    padding-left:9px;
+    padding-right: 9px;
+    
+}
+
+/*Styling for table row hover.*/
+tr:hover{
+    background-color: var(--table-hover-background-color);
+    color: var(--table-hover-color);
+    cursor: pointer;
 }

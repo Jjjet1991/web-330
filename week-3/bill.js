@@ -9,14 +9,14 @@
 */
 
 //Create a class named Bill, export the class.
-export class Bill{
+export class Bill {
     //Add properties for beverages, desserts, main courses, and appetizers.
     constructor(_beverages, _desserts,_mainCourses, _appetizers){
     //Assign properties to open array.
-    _beverages = [];
-    _desserts = [];
-    _mainCourses = [];
-    _appetizers = [];
+    this._beverages = [];
+    this._desserts = [];
+    this._mainCourses = [];
+    this._appetizers = [];
 }
 
 //Create addBeverage function, push to _beverages array
