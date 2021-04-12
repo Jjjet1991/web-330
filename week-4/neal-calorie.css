@@ -5,9 +5,7 @@
 ; Description: Calorie converter with keyboard event.
 =====================================================
 */
- html{};
-
- #foodList{
+ #foodList {
      float: right;
      color: #df546a;
      font-size:12px;

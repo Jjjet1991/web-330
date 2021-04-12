@@ -20,84 +20,123 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!--Font-awesome CDN link.-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      
+
   <!--Title for page.-->
   <title>WEB 231 – Enterprise JavaScript I</title>
 </head>
+
 <body>
   <!--Container for assignment.-->
   <div class="container">
-  <!--App Header: Welcome to the Palindrome App!-->
-  <div class="app-header">Welcome to the Calorie App!</div>
-  <!--Card for Palindrome Checker-->
-  <div class="card">
+    <!--App Header: Welcome to the Palindrome App!-->
+    <div class="app-header">Welcome to the Calorie App!</div>
+    <!--Card for Palindrome Checker-->
+    <div class="card">
       <!--Calorie Search Form Card with title.-->
       <div class="card-title">Calorie Search Form</div>
-      <div class= form>
-          <!--Form field for input text box.-->
+      <div class=form>
+        <!--Form field for input text box.-->
         <div class="form-field">
-          <label for="enterFoodItem">Enter a food item:</label>
-          <input type="text" class= "input" id="txtFoodItem">
-          <span id=foodList></span>
+          <label for="txtFoodItem">Enter a food item:</label>
+          <input type="text" class="input" id="txtFoodItem">
+          <p><span id="foodListItems"></span></p>
         </div>
         <!--2nd form field containing purple full width button-->
         <div class="form-field">
-        <button class="btn btn-primary full-width" id="btnSearch">Search</button>
+          <button class="btn btn-primary full-width" id="btnSearch">Search</button>
+        </div>
       </div>
+    </div>
+
+
+
+    <!--Break for Return to home button to sit below the Palindrome Checker card.-->
+    <br />
+    <a class="return-home" href="../index.html">Return</a>
+
+    <!--Card for Search results with span tag containing foodList.-->
+    <div class="card">
+      <div class="card-title">Search Results</div>
+      <div class="card-content" id="searchResults">
+       </div>
     </div>
   </div>
-
-<!--Break for Return to home button to sit below the Palindrome Checker card.-->
-<br />
-<a class="return-home" href="../index.html">Return</a>
-
-  <!--Card for Search results with span tag containing foodList.-->
-  <div class="card">
-      <div class="card-title" >Search Results</div>
-      <div class="card-content"  id="searchResults">
-          <div class="table-header"><div>
-              <div class="table-body"></div>
-          </div>
-      </div>
-    </div>
-
- 
-
-  </div><!--end for container-->
-
+  <!--end for container-->
+  <!--//===============================================================================-->
   <script src="../theme.js"></script>
-  <script type= "module">
-      //Create an import statement for Calorie Converter.
-      import { CalorieConverter } from "./calorie-converter.js";
-      </script>
-      <script>
+  <script type="module">
 
+    //Create an import statement for Calorie Converter.
+    import {
+      CalorieConverter
+    } from "./calorie-converter.js";
+
+    setSelectedTheme()
     //Create variable txtFoodItemEl and assign it txtFoodItem.
-     var txtFoodItemEl = document.getElementById("txtFoodItem");
+    var txtFoodItemEl = document.getElementById("txtFoodItem");
 
     //Register on-click event for btnSearch.
     document.getElementById("btnSearch").onclick = function() {
 
-    //Variable txtFoodItem set to value of txtFoodItem input box.
-    var txtFoodItem = document.getElementById("txtFoodItem").value;
+      //Variable txtFoodItem set to value of txtFoodItem input box.
+      let txtFoodItem = (document.getElementById("txtFoodItem").value).toLowerCase();
+      //console.log(txtFoodItem); //should return user input--lower case.
+      //===============================================================================
+      //Create foods variable and call static function
+      let foods = CalorieConverter.find(txtFoodItem);
+      //console.log(CalorieConverter.find(txtFoodItem));
 
-    //Call static find function- to lowercase.
-    var foods = CalorieConverter.find;
-//Declare tableData 
-   let tableData = "";
 
-    tableData  += "<table>";
-   //Loop over array.
-   for (var i = 0; i < foods.length; i++) {
-       tableData += "<tr>";
-       tableData += "<td>" + foods[i] + "</td>";
-       tableData += "</tr>";
-   }
-    tableData  += "</table>";
+      //Create variable tableData and build a string to represent a table.
+      let tableData;
+      for (let foodName of foods) {
+        //Create a table row.
+        let tableRow = `
+                    <tr>
+                        <td>${foodName.name}</td>
+                        <td>${foodName.calories}</td>
+                    </tr>`
+        tableData += tableRow; //add table row to tableData variable.
+      }
 
-    //Output table to
-document.getElementById("searchResults").innerHTML= tableData;
+      // Closing tags for table elements.
+      tableData += "</tbody></table>";
+
+      // Once user inputs item and click button/hits enter; result binds to resultsTable element.
+      document.getElementById("searchResults").innerHTML = tableData;
+      //===============================================================================
+      //Keyup Event
+
+      var input = document.getElementById("btnSearch");
+
+      input.addEventListener("keyup", function(event) {
+        //If statement to see if enter (key 13) was pressed.
+        if (event.keyCode === 13) {
+          document.getElementById("txtFoodItem").click();
+        }
+      });
+
+
+      //===============================================================================
+      //Create foodList Variable and call the static detail data. 
+      const foodList = CalorieConverter.data;
+
+      var foodListData = ('');
+      //Loop over array.
+      for (let foodName of foodList) {
+        let allFood = (foodName.name);
+        //console.log(foodName.name);//This returns a list of the food names.
+        let foodListData = allFood
+        let allFood2 = foodListData.toString();
+
+        console.log(allFood2);
+        //This is returning the list of food names but not in a single string
+        //The user input is also being correctly captured in lower case.
+
+        //==============================================================================
+      }
     }
-</script>
+  </script>
 </body>
+
 </html>

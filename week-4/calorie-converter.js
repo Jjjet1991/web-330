@@ -24,7 +24,8 @@ export class CalorieConverter {
 
 static find(name){
     //Return data array, use js filter to include items with "name" matching the string, return in lowercase.
-return this.data.filter(food => food.name.toLowerCase().includes(name));
+return this.data.filter(FoodModel => FoodModel.name.toLowerCase().includes(name));
 }
-}
+
+};
 //Export the class.
