@@ -1,0 +1,20 @@
+/*; Title: Assignment 5.2 Bob's Automotive Repair
+; Author: Professor Krasso
+; Date  18 April 2021
+; Modified By: Jourdan Neal
+; Description: Bobs automotive shopping cart calculation.
+=====================================================
+*/
+
+#cart-message {
+ float:right;
+ color: #df546a;
+ font-size:12px;
+ letter-spacing: 2px;
+ margin-left:30px;
+
+}
+
+i :hover {
+    cursor: pointer;
+}
