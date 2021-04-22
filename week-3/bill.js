@@ -7,55 +7,65 @@
 ; Description: Restaurant App, using JS import/export.
 =====================================================
 */
+//Create Bill class.
+export class Bill
+{
+    //Create four class properties and assign them to empty array.
+    constructor(_beverages, _desserts, _mainCourses, _appetizers){
+        this._beverages = [];
+        this._desserts = [];
+        this._mainCourses = [];
+        this._appetizers = [];
+    }
 
-//Create a class named Bill, export the class.
-export class Bill {
-    //Add properties for beverages, desserts, main courses, and appetizers.
-    constructor(_beverages, _desserts,_mainCourses, _appetizers){
-    //Assign properties to open array.
-    this._beverages = [];
-    this._desserts = [];
-    this._mainCourses = [];
-    this._appetizers = [];
-}
 
-//Create addBeverage function, push to _beverages array
-addBeverage(beverage){
+//Create function addBeverage w/ one parameter of type of beverage. 
+addBeverage(beverage)
+{
+    //Takes this beverage and pushes it to empty beverages array
     this._beverages.push(beverage);
 }
-
-//Create addDessert function, push to _beverages array
-addDessert(dessert){
+//Create same function for dessert with one parameter for dessert type.
+addDessert(dessert)
+{
     this._desserts.push(dessert);
 }
+//Create function for main course.
+addMainCourse(mainCourse)
+{
+    this._mainCourses.push(mainCourse);
+}
+//And one last class for appetizers.
+addAppetizer(appetizer)
+{
+    this._appetizers.push(appetizer);
+}
+//Create getTotal function, using parseFloat for each of the 4 food categories.
+getTotal()
+{
+    let total = 0;//Start total value of 0.00.
 
-//Create getTotal() function.
-getTotal(){
-    let total = 0;
-    //For each loop iterating through _beverages array.
     let beverageTotal = this._beverages.forEach(function(beverage)
     {
-        total += parseFloat(beverage.price)
-    })
-        
-    //For each loop iterating through _desserts array.
+        total += parseFloat(beverage.price); //Increase the total by each beverage price.
+    });
+
     let dessertTotal = this._desserts.forEach(function(dessert)
     {
-        total += parseFloat(dessert.price)
-    })
+        total += parseFloat(dessert.price);
+    });
 
-    //For each loop iterating through _appetizers array.
-    let appetizerTotal = this._appetizers.forEach(function(appetizer)
-    {
-        total += parseFloat(appetizer.price)
-    })
-
-    //For each loop iterating through _main-courses array.
     let mainCourseTotal = this._mainCourses.forEach(function(mainCourse)
     {
-        total += parseFloat(mainCourse.price)
-    })
-    //Return total value.
-    return total;
+        total += parseFloat(mainCourse.price);
+    });
+
+    let appetizerTotal = this._appetizers.forEach(function(appetizer)
+    {
+        total += parseFloat(appetizer.price);
+    });
+
+    //Return the updated total with addition of each category and fix to 2 decimals places.
+    return total.toFixed(2);
 }
 }

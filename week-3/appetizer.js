@@ -7,12 +7,12 @@
 ; Description: Restaurant App, using JS import/export.
 =====================================================
 */
+//Import Product object.
+import { Product } from "./product.js";
 
-//Import statement for Product class.
-import {Product} from "./products.js";
-
-///Export Appetizer class, inherit Product object.
-export class Appetizer extends Product {
+//Create Appetizer class to inherit Product object. Export the class. 
+export class Appetizer extends Product
+{
     constructor(name, price)
     {
         super(name, price);

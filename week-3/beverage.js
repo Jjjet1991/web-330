@@ -7,15 +7,16 @@
 ; Description: Restaurant App, using JS import/export.
 =====================================================
 */
+//Add import statement for product class from product.js
+import { Product } from "./product.js";
 
-//Import Product statement.
-import {Product} from "./products.js";
 
-//Export Beverage class inherit Product object.
+//Create Beverage class. Export class.
 export class Beverage extends Product
 {
     constructor(name, price)
     {
+        //Create super function to pass parameters through parent (Product) class.
         super(name, price);
     }
 }
