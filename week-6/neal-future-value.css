@@ -1,0 +1,21 @@
+<!--/*
+=====================================================
+; Title: Assignment 6.2 Future Value App
+; Author: Professor Krasso
+; Date 25 April 2021
+; Modified By: Jourdan Neal
+; Description: Using flex css to create future value calculator.
+=====================================================
+*/-->
+
+#danger{
+    float: right;
+    color:#df546a;
+    font-size: 12px;
+    letter-spacing:2px;
+}
+
+.form-label{
+    display: inline-block;
+    padding-top: 1rem;
+}
