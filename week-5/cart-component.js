@@ -1,3 +1,11 @@
+/*; Title: Assignment 5.2 Bob's Automotive Repair
+; Author: Professor Krasso
+; Date  18 April 2021
+; Modified By: Jourdan Neal
+; Description: Bobs automotive shopping cart calculation.
+=====================================================
+*/
+
 //Create class CartComponent extend object element
 class CartComponent extends HTMLElement
  {

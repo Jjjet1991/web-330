@@ -106,13 +106,13 @@
     let productValue = productList.options[productList.selectedIndex].value;
 
     //Create an if statement to compare product variable against '--Select--'.
-    if (product != "Select"){
+    if (product !== "--Select--"){
         //If they do not match call shopping cart function with new Product.
-        shoppingCart.add(product, productValue);
+        shoppingCart.add(new Product(product, productValue));
         //call SetCartCount function
         setCartCount();
         //Create alert that says product was adding to your shopping cart.
-        alert(`&{product} was added to your shopping cart!`)
+        alert(`${product} was added to your shopping cart!`)
     }
 }
 

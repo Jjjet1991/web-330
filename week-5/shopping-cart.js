@@ -1,3 +1,11 @@
+/*; Title: Assignment 5.2 Bob's Automotive Repair
+; Author: Professor Krasso
+; Date  18 April 2021
+; Modified By: Jourdan Neal
+; Description: Bobs automotive shopping cart calculation.
+=====================================================
+*/
+
 //Create shopping cart class with constructor.
 export class ShoppingCart{
     constructor(){
@@ -16,9 +24,14 @@ export class ShoppingCart{
     
 
     //Created iterator (i) in the body use a for of statement to loop products array.
-    myIterator(){
-    for (let i of products){
-        yield;
+*[Symbol.iterator]()//Create iterator
+{
+    for(let product of this.products)//Iterate through this.products array.
+    {
+        yield product; //Yield product.
     }
-  }
+ }
+
 }
+
+
