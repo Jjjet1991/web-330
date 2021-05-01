@@ -21,7 +21,8 @@ export class FloatMaxField
     //Create validate function.
     validate(){
         //Boolean value will return true if value of parseFloat(field) is less than max value.
-        Boolean(parseFloat(field) < max);
+        let floatField = parseFloat(this.field);
+        return floatField < this.max;
     }
 
     //Create getMessage function return string.

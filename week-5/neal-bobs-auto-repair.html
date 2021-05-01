@@ -87,7 +87,14 @@
     //Add import statements for Product and ShoppingCart classes.
     import { Product } from "./product.js";
     import { ShoppingCart } from "./shopping-cart.js";
-    import { CartComponent } from "./cart-component.js";
+
+        //Create setCardCount function.
+function setCartCount(){
+
+//Call cartCount function on ShoppingCard and bind it to card count.
+document.getElementById("cart-count").innerHTML = cartCount(shoppingCart);
+}
+    
 
     //Create new variable shoppingCart and create new ShoppingCart object
     let shoppingCart = new ShoppingCart();
@@ -113,6 +120,8 @@
         setCartCount();
         //Create alert that says product was adding to your shopping cart.
         alert(`${product} was added to your shopping cart!`)
+
+        document.getElementById("productList").value = "select";
     }
 }
 
@@ -135,12 +144,7 @@ document.getElementById("cartIcon").onclick= function() {
                     //Bind results to "shoppingCart" div.
                     document.getElementById('shoppingCart').innerHTML = tableData;
                 }
-    //Create setCardCount function.
-    function setCartCount(){
 
-        //Call cartCount function on ShoppingCard and bind it to card count.
-        document.getElementById("card-count").innerHTML = cartCount(ShoppingCart);
-    }
 
     }
 

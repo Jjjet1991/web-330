@@ -19,4 +19,4 @@ class CartComponent extends HTMLElement
         `;
     }
 }
-customElements.define("cart-component", CartComponent );
+customElements.define("cart-component", CartComponent);

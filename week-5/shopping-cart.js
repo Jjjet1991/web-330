@@ -6,32 +6,33 @@
 =====================================================
 */
 
-//Create shopping cart class with constructor.
-export class ShoppingCart{
-    constructor(){
-        //Create a products property set to an empty array.
+//Create a class Shopping cart w/ constructor.
+export class ShoppingCart
+{
+    constructor()
+    {
+        //In the body of constructor create a property for products and assign empty array.
         this.products = [];
     }
-    //Create count function that returns length of products array.
-    count(){
-        return products.length;        
-    }
-    //Create function -add w/ parameter for product object.
-    add(product){
-        //Add product to the products array
-        this.product = products.push(product);
-    }        
-    
-
-    //Created iterator (i) in the body use a for of statement to loop products array.
-*[Symbol.iterator]()//Create iterator
-{
-    for(let product of this.products)//Iterate through this.products array.
+    //Create function count that will return the length of products array.
+    count() 
     {
-        yield product; //Yield product.
+        return this.products.length;
     }
- }
-
+    //Create add product function and push to products array.
+    add(product)
+    {
+        this.products.push(product);
+    }
+    //Create iterator.
+    *[Symbol.iterator]()
+    {
+        //Iterate through product in the products array. This will also define product.
+        for (let product of this.products)
+        {
+            yield product;
+        }
+    }
 }
 
 

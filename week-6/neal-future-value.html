@@ -16,7 +16,7 @@
   <!--Link to site CSS.-->
   <link rel="stylesheet" href="../site.css"> 
   <!--Link to theme CSS--> 
-  <link rel="stylesheet" href="../theme.css">
+  <script type="application/stylesheet" href="../theme.css"></script>
   <!--Link to assignment Flex CSS-->
   <link rel="stylesheet" href="../flex-layout.css">
   <!--Link to assignment CSS (neal-future-vale.css)-->
@@ -27,8 +27,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!--CDN Icon link-->
   <link href='https://cdn.jsdelivr.net/npm/@mdi/font@5.9.55/css/materialdesignicons.min.css' rel='Stylesheet'>
-<!--link to card-component.js -->
-  <script src="cart-component.js"></script>
+
 
   <!--Title for page.-->
   <title>WEB 231 – Enterprise JavaScript I</title>
@@ -120,7 +119,7 @@
     //Create rate variable assign it the value from the txtYearlyRate input field.
     let rate = document.getElementById("txtYearlyRate").value;
     //Create years variable and assign it the value from the listNumOfYears.
-    let years = document.getElementById("listNumOfYears").value;
+    let years = document.getElementById("listOfNumbers").value;
     //Create a variable named errorLogEl and assign it the element errorLog.
     let errorLogEl = document.getElementById("errorLog");
 
@@ -133,14 +132,14 @@
     
     /*Call the addRequiredField() function on the monthlyPaymentValidator. Validates that monthlyPaymentValidator
     contains a name, field and pushes to validators.*/
-    monthlyPayment.addRequiredField();
+    monthlyPaymentValidator.addRequiredField();
 
     //Call the addRequiredFloatField() function on the monthlyPaymentValidator.
-    monthlyPayment.addRequiredFloatField();
+    monthlyPaymentValidator.addRequiredFloatField();
 
     /*Call the addFloatMinField() function on the monthlyPaymentValidator and supply it a
     value of 100 to make the field minimum value of 100. */
-    monthlyPayment.addFloatMinField(100);
+    monthlyPaymentValidator.addFloatMinField(100);
 
     //--------------Validate Interest Rate Input--------------//
 
@@ -182,12 +181,12 @@
     //--------------If monthlyPaymentValidator and rateValidator are true--------------//
     if (monthlyPaymentValidator.validate() && rateValidator.validate() == true) {
         //Clear errorlogEl.innerHTML
-        document.getElementById("errorLogEl").innerHTML='';
+        document.getElementById("errorLog").innerHTML='';
         /*Create a variable named futureValue. Call static function calculateFutureVale from FinanceCalculator 
         exported class. Pass in variables monthlyRate, rate, years*/
-        let futureValue = FinanceCalculator.calculateFutureValue(monthlyRate, rate, years);
+        let futureValue = FinanceCalculator.calculateFutureValue(monthlyPayment, rate, years);
         //Bind futureValue to futureValue div on results card.
-        document.getElementById("futureVale").innerHTML= futureValue;
+        document.getElementById("futureValue").innerHTML= futureValue;
     }
 
     //--------------If monthlyPaymentValidator or rateValidator are false--------------//

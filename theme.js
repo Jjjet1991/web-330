@@ -5,8 +5,6 @@
 ; Description: Palindrome checker. 
 =====================================================
 */
-//Call function to setDefaultTheme.
-setDefaultTheme();
 
 function setDefaultTheme()
 {
@@ -26,30 +24,7 @@ function setSelectedTheme()
     document.body.classList.value = localStorage.getItem("mode") || "light-theme"; 
 }
 
-function toggleMode(x)//Toggle mode, on click event. Toggle body classList from "light-theme" to "dark-theme".
-{
-    let colorTheme = document.body.classList;//get the body's CSS class
-    let iconMode = x.classList;
 
-
-
-if (colorTheme.value === "light-theme"){
-    localStorage.clear();
-    localStorage.setItem("mode", "dark-theme");
-    localStorage.setItem("iconMode", "fa-toggle-on");
-    localStorage.setItem("iconText", "Dark Mode")
-} else 
-{
-    localStorage.clear();
-    localStorage.setItem("mode", "light-theme");
-    localStorage.setItem("iconMode", "fa-toggle-off");
-    localStorage.setItem("iconText", "Light Mode");
-
-}
-colorTheme.value= localStorage.getItem("mode");
-iconMode.value = `fa ${localStorage.getItem("iconMode")} pull-right`;
-document.getElementById("icon-text").innerHTML = localStorage.getItem("iconText");
-}
  
 
 

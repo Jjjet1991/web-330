@@ -27,12 +27,13 @@ export class Validator
 
     /*Create a function addRequiredField() in the body push a new instance of the RequiredField class
     to validators array using the name and field as parameters.*/
-    addRequiredField(name, field)
+    addRequiredField()
     {
         this.validators.push(new RequiredField(this.name, this.field));        
     }
     //Create addRequiredFloatField in the body push new instance of class to the validators array.
-    addRequiredFloatField(name, field){
+    addRequiredFloatField()
+    {
         this.validators.push(new FloatField(this.name, this.field));
     }
     //Create addFloatMinField function push to validators array using name, field, min as parameters.
@@ -48,20 +49,21 @@ export class Validator
     //Create validate function.
     validate()
     {
-/*Confused on this step--not 100% sure the logic is correct. Not sure correct way to iterate through arrary
-then manipulate returned value.*/
-        //------------------------------RequiredField-------------------------------------------------------------
-        ///Iterate through each object (RequiredField, FloatField, Min and Max) of validators array.
-        for (RequiredField of validators)
+     //------------------------------RequiredField-------------------------------------------------------------
+    ///Iterate through each object (RequiredField, FloatField, Min and Max) of validators array.
+        for (let validator of this.validators)
         {
             //Call RequiredField.validate()--this should return true or false value.
-            RequiredField.validate();
+            if(!validator.validate())
+            {
             //If RequireField validate returns false,push iterated.getMessage() to message array.
-                if (RequiredField.validate() == false)
                 {
                     //Push iterated object getMessages to the messages array.
-                    this.messages.push.RequiredField.getMessages();
+                    this.messages.push(validator.getMessages());
+                    return false;
                 }
+            }
+            return true;
         }
         //-----------------------------------FloatField-----------------------------------------------------------
                 ///Iterate through each object (RequiredField, FloatField, Min and Max) of validators array.

@@ -24,6 +24,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!--Font-awesome CDN link.-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--Link to theme.js-->
+  <script type="application/javascript" href="theme.js"></script>
 </head>
 
 <body class="light-theme">
@@ -69,7 +71,35 @@
       <li><a href="https://www.w3schools.com/js/js_best_practices.asp" target="_blank">JavaScript Best Practices</a></li>
     </ul>
   </div>
-  <script type="application/javascript" src="theme.js"></script>
+
+  <script>
+  setDefaultTheme();
+
+  function toggleMode(x)//Toggle mode, on click event. Toggle body classList from "light-theme" to "dark-theme".
+{
+    let colorTheme = document.body.classList;//get the body's CSS class
+    let iconMode = x.classList;
+
+
+
+if (colorTheme.value === "light-theme"){
+    localStorage.clear();
+    localStorage.setItem("mode", "dark-theme");
+    localStorage.setItem("iconMode", "fa-toggle-on");
+    localStorage.setItem("iconText", "Dark Mode")
+} else 
+{
+    localStorage.clear();
+    localStorage.setItem("mode", "light-theme");
+    localStorage.setItem("iconMode", "fa-toggle-off");
+    localStorage.setItem("iconText", "Light Mode");
+
+}
+colorTheme.value= localStorage.getItem("mode");
+iconMode.value = `fa ${localStorage.getItem("iconMode")} pull-right`;
+document.getElementById("icon-text").innerHTML = localStorage.getItem("iconText");
+}
+</script>
 </body>
 
 </html>

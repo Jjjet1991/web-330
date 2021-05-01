@@ -21,9 +21,10 @@ export class FloatMinField
     //Create validate function.
     validate(){
       //Boolean value will return true if value of parseFloat(field) is greater than min value.
-      Boolean(parseFloat(field) > min);
-
+      let floatField = parseFloat(this.field);
+      return floatField > this.min;
     }
+    
     //Create getMessage function return string.
     getMessage(){
         return ('<name> must be more than <min>. You entered <field>.')
