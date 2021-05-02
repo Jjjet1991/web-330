@@ -24,8 +24,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!--Font-awesome CDN link.-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
   <!--Link to theme.js-->
-  <script type="application/javascript" href="theme.js"></script>
+  <script type="application/javascript" src="theme.js"></script>
 </head>
 
 <body class="light-theme">
@@ -34,7 +35,7 @@
     <div id="container">
     
   <!--Icon tag, 28px font, class and id, span of icon-text.-->
-  <i id="icon-mode" class="fa fa-toggle-off pull-right" style="font-size:28px" onclick="toggleMode(this)">
+  <i id="icon-mode" class="fa fa-toggle-off pull-right" style="font-size:28px" onclick = "toggleMode(this)">
     <span id="icon-text"></span></i>
     <br><!--Add space to align icon w/ container.-->
 
@@ -51,7 +52,7 @@
       <li><a href="week-4/neal-calorie-converter.html">Assignment 4.2</a></li>
       <li><a href="week-5/neal-bobs-auto-repair.html">Assignment 5.2</a></li>
       <li><a href="week-6/neal-future-value.html">Assignment 6.2</a></li>
-      <li><a href="#">Assignment 7.2</a></li>
+      <li><a href="week-7/neal-whatabook1.html">Assignment 7.2</a></li>
       <li><a href="#">Assignment 8.2</a></li>
     </ul>
     <!--Projects h3 header with unordered lists and a tags.-->
@@ -72,33 +73,38 @@
     </ul>
   </div>
 
-  <script>
+  <script>  
   setDefaultTheme();
-
-  function toggleMode(x)//Toggle mode, on click event. Toggle body classList from "light-theme" to "dark-theme".
+ 
+ function toggleMode(x)//Toggle mode, on click event. Toggle body classList from "light-theme" to "dark-theme".
 {
     let colorTheme = document.body.classList;//get the body's CSS class
     let iconMode = x.classList;
 
 
 
-if (colorTheme.value === "light-theme"){
+if (colorTheme.value === "light-theme")
+{
     localStorage.clear();
     localStorage.setItem("mode", "dark-theme");
     localStorage.setItem("iconMode", "fa-toggle-on");
     localStorage.setItem("iconText", "Dark Mode")
-} else 
+} 
+
+else 
 {
     localStorage.clear();
     localStorage.setItem("mode", "light-theme");
-    localStorage.setItem("iconMode", "fa-toggle-off");
+    localStorage.setItem("iconMode", "fa-toggle-off"); 
     localStorage.setItem("iconText", "Light Mode");
 
 }
+
 colorTheme.value= localStorage.getItem("mode");
 iconMode.value = `fa ${localStorage.getItem("iconMode")} pull-right`;
 document.getElementById("icon-text").innerHTML = localStorage.getItem("iconText");
 }
+
 </script>
 </body>
 
