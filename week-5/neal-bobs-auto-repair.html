@@ -1,119 +1,121 @@
-<!--/*; Title: Assignment 5.2 Bob's Automotive Repair
+<!--
+=====================================================
+; Title: Assignment 2.2 Palindrome Checker
 ; Author: Professor Krasso
-; Date  18 April 2021
+; Date 27 March 2021
 ; Modified By: Jourdan Neal
-; Description: Bobs automotive shopping cart calculation.
+; Description: Palindrome Checker, length(), reverse(), split(). 
+Check with if statement to see if phrase returns as a palindrome.
 =====================================================
 */-->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
   <!--Link to Site CSS.-->
-  <link rel="stylesheet" href="../site.css">  <!--Link to Theme CSS.-->
+  <link rel="stylesheet" href="../site.css">
+  <!--Link to Theme CSS.-->
   <link rel="stylesheet" href="../theme.css">
-  <!--Link to assignment Calorie CSS-->
-  <link rel="stylesheet" href="neal-bobs-auto-repair.css">
+  <!--Link to assignment CSS-->
+  <link rel="stylesheet" href="./neal-bobs-auto-repair.css">
+
+  <script type="application/javascript" src="../theme.js"></script>
+  <script src="cart-component.js"></script>
+
   <!--Link for Google Fonts-->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!--Font-awesome CDN link.-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!--CDN Icon link-->
-  <link href='https://cdn.jsdelivr.net/npm/@mdi/font@5.9.55/css/materialdesignicons.min.css' rel='Stylesheet'>
-<!--link to card-component.js -->
-  <script src="cart-component.js"></script>
 
   <!--Title for page.-->
-  <title>WEB 231 – Enterprise JavaScript I</title>
+  <title>WEB 330 – Enterprise JavaScript II</title>
 </head>
-<body>
-    <div class="container">
-      <!--h1 application header-->
-      <div class="app-header">Welcome to Bob's Automotive Repair Shop!</div>
-        <div class="card">
-            <!--Product listing card-title with cart icon.-->
-            <div class="card-title">Product Listing
-            <br>
-            <!--Card component from js file.-->
-            <cart-component></cart-component>   
-            </div>
- 
-                <!--Choose a Product drop down menu.-->
-                <div class="form">
-                    <!--Text value for drop down menu.-->
-                    <div class="form-field">
-                    <label for="products">Choose a product:</label>
-                    <!--Dropdown list.-->
-                    <select id="productList" class="drop-down-menu">
-                        <!--Option default select--select-->
-                        <option value="Select">--Select--</option>
-                        <!--Drop-down-menu option.-->
-                        <option value="19.99">Oil Change</option>
-                        <!--Drop-down-menu option.-->
-                        <option value="18.44">Filter Replacement</option>
-                        <!--Drop-down-menu option.-->
-                        <option value="9.99">Wiper Fluid Refill</option>                        
-                    </select>
-                    </div>
-                    <!--i tag with id cart-message.-->
-                    <i id="cart-message">To view your shopping cart click on the cart icon</i>
-                    <!--Additional form field for button.-->
-                    <div class="form-field">
-                        <button class= "btn btn-primary full-width" id="btnAddProduct"> Add to Cart</button>
-                    </div>
-                </div>
-            </cart-component>
-        </div><!--closes card-->
-        <br/>
-        <!--Return home button with link to index.html.-->
-        <a class="return-home" href="../index.html">Return</a>
 
-        <!--Shopping Card card.-->
-        <div class="card">
-            <!--Card title.-->
-            <div class="card-title">Shopping Cart</div>
-                <div class="card-content">
-                    <!--Table header with shoppingCart id.-->
-                    <!--Table data with shoppingCart id.-->
-                    <th id="shoppingCart"></th>
-                    <td id="shoppingCart"></td>
-                </div>
+<body>
+  <!--Container for assignment.-->
+  <div class="container">
+    <!--App Header: Welcome to App!-->
+    <div class="app-header">Welcome to Bob's Automotive Repair!!</div>
+    <!--Card for product chooser-->
+    <div class="card">
+      <!--Card title for product choice-->
+      <div class="card-title">Product Listing <br>
+        <cart-component></cart-component>
+      </div>
+
+      <!--Card content for Product List.-->
+      <div class="card-content">
+        <!--Product form.-->
+        <div class="form">
+          <!--Text value for drop down menu.-->
+          <div class="form-field">
+            <label for="products">Choose a product:</label>
+            <!--Dropdown list.-->
+            <select id="productList" class="drop-down-menu">
+              <!--Option default select--select-->
+              <option value="--Select--">--Select--</option>
+              <!--Drop-down-menu option.-->
+              <option value="19.99">Oil Change</option>
+              <!--Drop-down-menu option.-->
+              <option value="18.44">Filter Replacement</option>
+              <!--Drop-down-menu option.-->
+              <option value="9.99">Wiper Fluid Refill</option>
+            </select>
+          </div>
+          <!--i tag with id cart-message.-->
+          <i id="cart-message">To view your shopping cart click on the cart icon</i>
+          <!--close form-field-->
+          <!--2nd form field containing purple full width button-->
+          <div class="form-field">
+            <button class="btn btn-primary full-width" id="btnAddProduct">Add to cart</button>
+          </div>
         </div>
+        <!--close form-->
+      </div>
+      <!--close card-content-->
     </div>
-<!--------------------------------------------JavaScript-------------------------------------------------------->
-<script src="../theme.js"></script>
-<script type="module">
+    <!--close card-->
+    <!--Break for Return to home button.-->
+    <br />
+    <a class="return-home" href="../index.html">Return</a>
+    <!--Card to display Shopping Cart.-->
+    <div class="card">
+      <!--Results card-title: Shopping Cart-->
+      <div class="card-title">Shopping Cart</div>
+      <div class="card-content" id="shoppingCart">
+      </div>
+      <!--close card-content.-->
+      </div>
+    </div>
+    <!--close results card.-->
+
+  </div>
+  <!--close container-->
+  <script>
+    setSelectedTheme();
+  </script>
+  <!--------------------------------------------JavaScript-------------------------------------------------------->
+  <script type="module">
     //Add import statements for Product and ShoppingCart classes.
     import { Product } from "./product.js";
     import { ShoppingCart } from "./shopping-cart.js";
 
-        //Create setCardCount function.
-function setCartCount(){
 
-//Call cartCount function on ShoppingCard and bind it to card count.
-document.getElementById("cart-count").innerHTML = cartCount(shoppingCart);
-}
-    
+    //Set shoppingCart variable equal to new instance of Shopping Cart class.
+    let shoppingCart = new ShoppingCart;
 
-    //Create new variable shoppingCart and create new ShoppingCart object
-    let shoppingCart = new ShoppingCart();
+    setCartCount();
 
-    //Create on-click event for Add Product button.
-    document.getElementById("btnAddProduct").onclick = function()
-    {
-    
-    //Create variable productList and assign it to the productList div.
-    let productList = document.getElementById("productList");
+    //On click event.
+    document.getElementById("btnAddProduct").onclick = function() {
 
-    //Create variable product and assign it value productList.options[productList.selectedIndex].text
-    let product = productList.options[productList.selectedIndex].text;
+      let product = productList.options[productList.selectedIndex].text;
 
-    //Create variable productValue and set it equal to productLest.options[productList.selectedIndex].value.
-    let productValue = productList.options[productList.selectedIndex].value;
+      let productValue = productList.options[productList.selectedIndex].value;
 
-    //Create an if statement to compare product variable against '--Select--'.
-    if (product !== "--Select--"){
+      if (product != "--Select--") {
         //If they do not match call shopping cart function with new Product.
         shoppingCart.add(new Product(product, productValue));
         //call SetCartCount function
@@ -121,36 +123,38 @@ document.getElementById("cart-count").innerHTML = cartCount(shoppingCart);
         //Create alert that says product was adding to your shopping cart.
         alert(`${product} was added to your shopping cart!`)
 
-        document.getElementById("productList").value = "select";
+        productList.value = "select";
+      }
     }
-}
 
-//---Register an onclick event for the cart icon.
-document.getElementById("cartIcon").onclick= function() {
-    //Create a cartDisplay Table, set it equal to string value of table header.
-    let cartDisplayTable = `
-            <th>ID</th>
-            <th>Name</th>
-            <th>Price</th>`; 
 
-    //Using a for of loop iterate over ShoppingCart object (products array).
-    for (product of products){
-        //Create td for each product name/value.
-        let tableData = `
+    document.getElementById("cartIcon").onclick = function() {
+      let cartDisplayTable = `
+      <table class="table">
+        <tr><th>ID</th><th>Name</th><th>Price</th></tr>
+            `;
+
+      for (let _products of shoppingCart) {
+        cartDisplayTable += `
                     <tr>
-                        <td>${product.name}</td>
-                        <td>${product.value}</td>
-                    </tr>`;
-                    //Bind results to "shoppingCart" div.
-                    document.getElementById('shoppingCart').innerHTML = tableData;
-                }
+                        <td>${_products.id}</td>
+                        <td>${_products.name}</td>
+                        <td>${_products.price}</td>
+                    </tr>`
+        console.log(_products);
+      }
 
+      cartDisplayTable += `</table>`
 
+      document.getElementById('shoppingCart').innerHTML = cartDisplayTable;
     }
 
 
-
-</script>
-    
+    // Add number of items to shopping cart.
+    function setCartCount() {
+      document.getElementById('cart-count').innerHTML = shoppingCart.count();
+    }
+  </script>
 </body>
+
 </html>

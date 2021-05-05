@@ -34,5 +34,5 @@ export class ShoppingCart
         }
     }
 }
-
+//Export the ShoppingCart class.
 

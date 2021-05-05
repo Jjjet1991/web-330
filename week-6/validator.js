@@ -49,7 +49,6 @@ export class Validator
     //Create validate function.
     validate()
     {
-     //------------------------------RequiredField-------------------------------------------------------------
     ///Iterate through each object (RequiredField, FloatField, Min and Max) of validators array.
         for (let validator of this.validators)
         {
@@ -57,53 +56,13 @@ export class Validator
             if(!validator.validate())
             {
             //If RequireField validate returns false,push iterated.getMessage() to message array.
-                {
                     //Push iterated object getMessages to the messages array.
-                    this.messages.push(validator.getMessages());
+                    this.messages.push(validator.getMessage());
                     return false;
                 }
             }
-            return true;
-        }
-        //-----------------------------------FloatField-----------------------------------------------------------
-                ///Iterate through each object (RequiredField, FloatField, Min and Max) of validators array.
-                for (FloatField of validators)
-                {
-                    //Call RequiredField.validate()--this should return true or false value.
-                    FloatField.validate();
-                    //If RequireField validate returns false,push iterated.getMessage() to message array.
-                        if (FloatField.validate() == false)
-                        {
-                            //Push iterated object getMessages to the messages array.
-                            this.messages.push.FloatField.getMessages();
-                        }
-                }
-        //-----------------------------------FloatMinField---------------------------------------------------------
-                ///Iterate through each object (RequiredField, FloatField, Min and Max) of validators array.
-                for (FloatMinField of validators)
-                {
-                    //Call RequiredField.validate()--this should return true or false value.
-                    FloatMinField.validate();
-                    //If RequireField validate returns false,push iterated.getMessage() to message array.
-                        if (FloatMinField.validate() == false)
-                        {
-                            //Push iterated object getMessages to the messages array.
-                            this.messages.push.FloatMinField.getMessages();
-                        }
-                }
-        //-----------------------------------FloatMaxField---------------------------------------------------------
-                ///Iterate through each object (RequiredField, FloatField, Min and Max) of validators array.
-                for (FloatMaxField of validators)
-                {
-                    //Call RequiredField.validate()--this should return true or false value.
-                    FloatMaxField.validate();
-                    //If RequireField validate returns false,push iterated.getMessage() to message array.
-                        if (FloatMaxField.validate() == false)
-                        {
-                            //Push iterated object getMessages to the messages array.
-                            this.messages.push.FloatMaxField.getMessages();
-                        }
-                }
-    }//Closes validate function
+        return true;
+    }
+}
 
-}//Closes class
+//Export the class.

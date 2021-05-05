@@ -25,7 +25,8 @@ export class FloatField
 
     //Create a getMessage function, return string message.
     getMessage(){
-        return ('<name> must be a float value. You entered <field>')
+        return (this.name +' must be a float value. You entered '+ this.field);
     }
-
 }
+
+//Export class

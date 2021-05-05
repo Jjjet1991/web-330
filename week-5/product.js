@@ -15,3 +15,5 @@ export class Product {
         this.id = Math.random().toString(16).slice(2) 
     }
 }
+
+//Export the Product Class.

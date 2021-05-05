@@ -11,18 +11,19 @@
 //Create RequiredField class with name and field parameters. Export the class.
 export class RequiredField {
     constructor(name, field){
-        //Set parameters to class properties.
         this.name = name;
-        this.field = field;
+        this.field=field;
     }
+    //Create validate function.
+    validate()
+    {
+        return this.field = true;//will return true if this.field is a string.
+    };
 
-    //Create validate function--return Boolean(this.field)-will return true or false.
-    validate(){
-        return new Boolean(this.field)//Should return true if there is string text in field.
-    }
-
-    //Create a function-getMessage and return string message.
-    getMessage(){
-        return ('<name> is a required field.')
+    //Create getMessage function, returns string value of <name> is a required field.
+    getMessage()
+    {
+        return `${this.name} is a required field.`;
     }
 }
+//Export the class

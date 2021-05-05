@@ -13,20 +13,28 @@
 
 <head>
   <meta charset="UTF-8">
-  <!--Link to site CSS.-->
+
+  <!--Link to CSS.-->
   <link rel="stylesheet" href="../site.css"> 
-  <!--Link to theme CSS--> 
-  <script type="application/stylesheet" href="../theme.css"></script>
+  <link rel="stylesheet" href="../theme.css">
+ 
   <!--Link to assignment Flex CSS-->
   <link rel="stylesheet" href="../flex-layout.css">
   <!--Link to assignment CSS (neal-future-vale.css)-->
   <link rel="stylesheet" href="neal-future-value.css">
+
   <!--Link for Google Fonts-->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <!--Font-awesome CDN link.-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!--CDN Icon link-->
+  
+  <!--CDN Icon link-->
   <link href='https://cdn.jsdelivr.net/npm/@mdi/font@5.9.55/css/materialdesignicons.min.css' rel='Stylesheet'>
+
+  
+  <!--Link to theme.js-->
+  <script type="application/javascript" src="../theme.js"></script>
 
 
   <!--Title for page.-->
@@ -34,7 +42,7 @@
 </head>
 <!--========================================Body===================================================-->
 <body>
-    <div class="container">
+  <div class="container">
       <!--Application title.-->
       <div class="app-header">Welcome to the Future Value App!</div>
 <!--====================================Input Card===============================================-->      
@@ -42,9 +50,9 @@
           <div class="card-title">Future Value Calculator</div>
           <div class="card-content">
           <!--Empty row spanning 12 columns.-->
-          <div class="col col-12 danger" id="errorLog"></div>
+          <div class="danger col col-12" id="errorLog"></div>
 <!--======================Form for input boxes==============================-->
-          <div class= "form">
+          <div class="form">
             <!--1st row-->
           <div class="form-field row">
               <!--Label for Monthly Payment label spans 5 columns, input box spans 7.-->
@@ -56,7 +64,7 @@
             <!--Label for Interest Rate label spans 5 columns, input box spans 7.-->
             <label for="txtYearlyRate" class="form-label col col-5">Interest Rate:</label>
             <input type="text" class="input col col-7" id="txtYearlyRate">
-            <div><i id="danger">Enter 11% as 11.1:</i></div>
+            <div><i class="danger">Enter 11% as 11.1:</i></div>
           </div>
           <!--3rd Row-->
           <div class="form-field row">
@@ -94,117 +102,113 @@
         <!--Card-title with span tag with id of "today" (will be bound to function to get day).-->
         <div class="card-title">Calculation as of <span id="today"></span></div>
         <!--Card-content with id of futureValue-->
-        <div class="card-content" id= "futureValue"></div>
+        <div class="card-content" id="futureValue"></div>
     </div><!--closes results card-->
   </div><!--close container-->
 <!--=====================================JavaScript==================================================-->
-<!--Link to theme.js.-->
-<script src="../theme.js"></script>
-<!--Adding additional JS to assignments-->
+<script>setSelectedTheme();</script>
+
 <script type="module">
-    //Set user selected them light/dark.
-    setSelectedTheme(); 
-    //Create import statements for FinanceCalculator and Validator.
-    import { FinanceCalculator } from "./finance-calculator.js";
-    import { Validator } from "./validator.js";
+  import { FinanceCalculator } from "./finance-calculator.js";
+  import { Validator } from "./validator.js";
 
-        //Register On-Click event.
-        document.getElementById("btnCalculate").onclick = function() {
+//Register On-Click event.
+document.getElementById("btnCalculate").onclick = function() {
 
-    //Assign new Date to today span from results card--will return current date.
-    document.getElementById("today").innerHTML= new Date().toLocaleDateString("en-US");
+//Assign new Date to today span from results card--will return current date.
+document.getElementById("today").innerHTML= new Date().toLocaleDateString("en-US");
 
-    //Create variable monthlyPayment and assign it the value from txtMonthlyPayment.
-    let monthlyPayment = document.getElementById("txtMonthlyPayment").value;
-    //Create rate variable assign it the value from the txtYearlyRate input field.
-    let rate = document.getElementById("txtYearlyRate").value;
-    //Create years variable and assign it the value from the listNumOfYears.
-    let years = document.getElementById("listOfNumbers").value;
-    //Create a variable named errorLogEl and assign it the element errorLog.
-    let errorLogEl = document.getElementById("errorLog");
+//Create variable monthlyPayment and assign it the value from txtMonthlyPayment.
+let monthlyPayment = document.getElementById("txtMonthlyPayment").value;
+//Create rate variable assign it the value from the txtYearlyRate input field.
+let rate = document.getElementById("txtYearlyRate").value;
+//Create years variable and assign it the value from the listNumOfYears.
+let years = document.getElementById("listOfNumbers").value;
+//Create a variable named errorLogEl and assign it the element errorLog.
+let errorLogEl = document.getElementById("errorLog");
 
-    //--------------Validate Monthly Payment Input--------------//
+//--------------Validate Monthly Payment Input--------------//
 
-    /*Creating new instance of Validator class (monthlyPaymentValidator)--parameters for original class are 
-    (name, field),now passing in Monthly Payment (string name) and monthlyPayment (value of txtMonthlyPayment
-    (field)).*/
-    let monthlyPaymentValidator = new Validator("Monthly Payment", monthlyPayment);
-    
-    /*Call the addRequiredField() function on the monthlyPaymentValidator. Validates that monthlyPaymentValidator
-    contains a name, field and pushes to validators.*/
-    monthlyPaymentValidator.addRequiredField();
+/*Creating new instance of Validator class (monthlyPaymentValidator)--parameters for original class are 
+(name, field),now passing in Monthly Payment (string name) and monthlyPayment (value of txtMonthlyPayment
+(field)).*/
+let monthlyPaymentValidator = new Validator("Monthly Payment", monthlyPayment);
 
-    //Call the addRequiredFloatField() function on the monthlyPaymentValidator.
-    monthlyPaymentValidator.addRequiredFloatField();
+/*Call the addRequiredField() function on the monthlyPaymentValidator. Validates that monthlyPaymentValidator
+contains a name, field and pushes to validators.*/
+monthlyPaymentValidator.addRequiredField();
 
-    /*Call the addFloatMinField() function on the monthlyPaymentValidator and supply it a
-    value of 100 to make the field minimum value of 100. */
-    monthlyPaymentValidator.addFloatMinField(100);
+//Call the addRequiredFloatField() function on the monthlyPaymentValidator.
+monthlyPaymentValidator.addRequiredFloatField();
 
-    //--------------Validate Interest Rate Input--------------//
+/*Call the addFloatMinField() function on the monthlyPaymentValidator and supply it a
+value of 100 to make the field minimum value of 100. */
+monthlyPaymentValidator.addFloatMinField(100);
 
-    //Creating new Validator class passing in name: "Interest Rate" and field rate(value of txtYearlyRate field).
-    let rateValidator = new Validator("Interest Rate", rate);
+//--------------Validate Interest Rate Input--------------//
 
-    //Call addRequired() function to rateValidator to validate name and field. Will push to validators array.
-    rateValidator.addRequiredField();
+//Creating new Validator class passing in name: "Interest Rate" and field rate(value of txtYearlyRate field).
+let rateValidator = new Validator("Interest Rate", rate);
 
-    //Call addRequiredFloatField() function to the rateValidator.
-    rateValidator.addRequiredFloatField();
+//Call addRequired() function to rateValidator to validate name and field. Will push to validators array.
+rateValidator.addRequiredField();
 
-    /*Call the addFloatMaxField() function on the rateValidator and supply it a value of 100. This will create
-    max value = 100*/
-    rateValidator.addFloatMaxField(100);
+//Call addRequiredFloatField() function to the rateValidator.
+rateValidator.addRequiredFloatField();
 
-    //Create variable errorLog and set it to empty array.
-    const errorLog = [];
+/*Call the addFloatMaxField() function on the rateValidator and supply it a value of 100. This will create
+max value = 100*/
+rateValidator.addFloatMaxField(100);
 
-    //--------------Validator If... Statements--------------//
+//Create variable errorLog and set it to empty array.
+let errorLog=[];
 
-    /*If monthlyPaymentValidator does not validate (is false) iterate over messages field and push message 
-    to errorLog variable*/
-    if (!monthlyPaymentValidator.validate()) {
-        for (let msg of monthlyPaymentValidator.messages)
-        {
-            errorLog.push(msg);
-        }
+//--------------Validator If... Statements--------------//
+
+/*If monthlyPaymentValidator does not validate (is false) iterate over messages field and push message 
+to errorLog variable*/
+if (!monthlyPaymentValidator.validate()) {
+    for (let msg of monthlyPaymentValidator.messages)
+    {
+        errorLog.push(msg);
     }
+}
 
-    /*If rateValidator.validate() is false, use a for…of statement to iterate over the messages field and
-     push each message to the errorLog variable*/
-    if (!rateValidator.validate()) {
-        for (let msg of rateValidator.messages)
-        {
-            errorlog.push(msg);
-        }
+/*If rateValidator.validate() is false, use a for…of statement to iterate over the messages field and
+ push each message to the errorLog variable*/
+if (!rateValidator.validate()) {
+    for (let msg of rateValidator.messages)
+    {
+        errorLog.push(msg);
     }
-    //--------------If monthlyPaymentValidator and rateValidator are true--------------//
-    if (monthlyPaymentValidator.validate() && rateValidator.validate() == true) {
-        //Clear errorlogEl.innerHTML
-        document.getElementById("errorLog").innerHTML='';
-        /*Create a variable named futureValue. Call static function calculateFutureVale from FinanceCalculator 
-        exported class. Pass in variables monthlyRate, rate, years*/
-        let futureValue = FinanceCalculator.calculateFutureValue(monthlyPayment, rate, years);
-        //Bind futureValue to futureValue div on results card.
-        document.getElementById("futureValue").innerHTML= futureValue;
-    }
+}
+//--------------If monthlyPaymentValidator and rateValidator are true--------------//
+if (monthlyPaymentValidator.validate() && rateValidator.validate() == true) {
+    //Clear errorlogEl.innerHTML
+    document.getElementById("errorLog").innerHTML='';
+    /*Create a variable named futureValue. Call static function calculateFutureVale from FinanceCalculator 
+    exported class. Pass in variables monthlyRate, rate, years*/
+    let futureValue = FinanceCalculator.calculateFutureValue(monthlyPayment, rate, years);
+    //Bind futureValue to futureValue div on results card.
+    document.getElementById("futureValue").innerHTML= futureValue;
+}
 
-    //--------------If monthlyPaymentValidator or rateValidator are false--------------//
-    if (monthlyPaymentValidator.validate() || rateValidator.validate() == false) {
-        //Clear errorLog.innerHTML
-        document.getElementById("errorLogEl").innerHTML='';
-        /*Create a variable named errorLogMessage and build an unordered list of
-        the messages in the errorLog array (hint: you will need to use a for…of
-        statement to iterate over the array of error messages)*/
-        let errorLogMessage = '<ul>';//Create unordered list/
-        errorLog.forEach(function(message) {//Iterate over errorLog array.
-        errorLogMessage += '<li>' + message + '<li>';//For each item in errorLogMessage add li.
-    });
+//--------------If monthlyPaymentValidator or rateValidator are false--------------//
+if (monthlyPaymentValidator.validate() || rateValidator.validate() == false) {
+    //Clear errorLog.innerHTML
+    document.getElementById("errorLog").innerHTML='';
+    /*Create a variable named errorLogMessage and build an unordered list of
+    the messages in the errorLog array (hint: you will need to use a for…of
+    statement to iterate over the array of error messages)*/
+    let errorLogMessage = '<ul>';//Create unordered list/
+    errorLog.forEach(function(message) {//Iterate over errorLog array.
+    errorLogMessage += `<li>${message}</li>`;//For each item in errorLogMessage add li.
+});
 
-        //Bind errorLogMessage variable to errorLogEL.innerHTML.
-        document.getElementById("errLogEl").innerHTML = errorLogMessage;
-    }
-  } 
+    //Bind errorLogMessage variable to errorLogEL.innerHTML.
+    document.getElementById("errorLog").innerHTML = errorLogMessage;
+}
+} 
 
 </script>
 </body>

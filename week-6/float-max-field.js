@@ -27,6 +27,7 @@ export class FloatMaxField
 
     //Create getMessage function return string.
     getMessage(){
-        return ('<name> must be less than <max>. You entered <field>.')
+        return `${this.name} must be less than ${this.max}. You entered ${this.field}.`
     }
 }
+//Export the class.
