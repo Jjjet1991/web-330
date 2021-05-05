@@ -87,9 +87,9 @@ Check with if statement to see if phrase returns as a palindrome.
       <div class="card-content" id="shoppingCart">
       </div>
       <!--close card-content.-->
-      </div>
     </div>
-    <!--close results card.-->
+  </div>
+  <!--close results card.-->
 
   </div>
   <!--close container-->
@@ -99,8 +99,12 @@ Check with if statement to see if phrase returns as a palindrome.
   <!--------------------------------------------JavaScript-------------------------------------------------------->
   <script type="module">
     //Add import statements for Product and ShoppingCart classes.
-    import { Product } from "./product.js";
-    import { ShoppingCart } from "./shopping-cart.js";
+    import {
+      Product
+    } from "./product.js";
+    import {
+      ShoppingCart
+    } from "./shopping-cart.js";
 
 
     //Set shoppingCart variable equal to new instance of Shopping Cart class.
@@ -110,9 +114,9 @@ Check with if statement to see if phrase returns as a palindrome.
 
     //On click event.
     document.getElementById("btnAddProduct").onclick = function() {
-
+      //Set product variable to txt of Product List.
       let product = productList.options[productList.selectedIndex].text;
-
+      //Set product value of value of Product List.
       let productValue = productList.options[productList.selectedIndex].value;
 
       if (product != "--Select--") {
@@ -127,8 +131,9 @@ Check with if statement to see if phrase returns as a palindrome.
       }
     }
 
-
+    //On click function for cart icon.
     document.getElementById("cartIcon").onclick = function() {
+      //Create HTML table.
       let cartDisplayTable = `
       <table class="table">
         <tr><th>ID</th><th>Name</th><th>Price</th></tr>
@@ -141,17 +146,17 @@ Check with if statement to see if phrase returns as a palindrome.
                         <td>${_products.name}</td>
                         <td>${_products.price}</td>
                     </tr>`
-        console.log(_products);
       }
-
+      //close table.
       cartDisplayTable += `</table>`
-
+      //Bind cartDisplayTable to shopping cart card content.
       document.getElementById('shoppingCart').innerHTML = cartDisplayTable;
     }
 
 
     // Add number of items to shopping cart.
     function setCartCount() {
+      //Bind cart-count inside cart-component to (count function called on new shoppingCart).
       document.getElementById('cart-count').innerHTML = shoppingCart.count();
     }
   </script>
