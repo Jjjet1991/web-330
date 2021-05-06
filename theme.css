@@ -167,7 +167,6 @@ h2, h3, h4 {
 
 /*Styling for table: collapsed border, width and margin.*/
 .table {
-    width:100%;
     border-collapse:collapse;
     margin-bottom: 30px;
 }

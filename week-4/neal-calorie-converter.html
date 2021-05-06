@@ -39,7 +39,7 @@
         <div class="form-field">
           <label for="txtFoodItem">Enter a food item:</label>
           <input type="text" class="input" id="txtFoodItem">
-          <div><span id="foodListItems"></span></div>
+          <div><span id="foodList"></span></div>
         </div>
         <!--2nd form field containing purple full width button-->
         <div class="form-field">
@@ -58,21 +58,20 @@
     <div class="card">
       <div class="card-title">Search Results</div>
       <div class="card-content" id="searchResults">
-       </div>
+      </div>
     </div>
   </div>
   <!--end for container-->
   <!--//===============================================================================-->
   <script src="../theme.js"></script>
   <script type="module">
-
     //Create an import statement for Calorie Converter.
     import {
       CalorieConverter
     } from "./calorie-converter.js";
 
     setSelectedTheme()
-    
+
     //Create variable txtFoodItemEl and assign it txtFoodItem.
     var txtFoodItemEl = document.getElementById("txtFoodItem");
 
@@ -89,19 +88,16 @@
 
 
       //Create variable tableData and build a string to represent a table.
-      let tableData 
+      let tableData = `<table class="table">
+        <tr><th>Name</th><th>Calories</th></tr>
+        `;
       for (let foodName of foods) {
         //Create a table row.
-        let tableRow = `
-                    <tr>
-                        <td>${foodName.name}</td>
-                        <td>${foodName.calories}</td>
-                    </tr>`
-        tableData += tableRow; //add table row to tableData variable.
+        tableData += `<tr><td>${foodName.name}</td><td>${foodName.calories}</td></tr>
+                    `;
       }
-
       // Closing tags for table elements.
-      tableData += "</tbody></table>";
+      tableData += "</table>";
 
       // Once user inputs item and click button/hits enter; result binds to resultsTable element.
       document.getElementById("searchResults").innerHTML = tableData;
@@ -120,22 +116,23 @@
 
       //===============================================================================
       //Create foodList Variable and call the static detail data. 
-      const foodList = CalorieConverter.data;
+      let foodList = CalorieConverter.data;
+      console.log(foodList);
 
-      var foodListData = ('');
-      //Loop over array.
-      for (let foodName of foodList) {
-        let allFood = (foodName.name);
-        //console.log(foodName.name);//This returns a list of the food names.
-        let foodListData = allFood
-        let allFood2 = foodListData.toString();
+      /* Create a variable named foodListData and build an HTML <i> string for the list of available
+      food items.*/
 
-        console.log(allFood2);
-        //This is returning the list of food names but not in a single string
-        //The user input is also being correctly captured in lower case.
-
-        //==============================================================================
+      let foodListData = `<i>(Ex: `
+      //Use for of loop to create list of foods.
+      for (let food of foodList) {
+        foodListData += `${food.name},`;
       }
+      //Cut off last comma from list of foods.
+      foodListData = `${foodListData.slice(0,-1)})</i>`;
+      //Bind foodListData to foodList HTML.
+      document.getElementById("foodList").innerHTML = foodListData
+
+      //==============================================================================
     }
   </script>
 </body>
