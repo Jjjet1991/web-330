@@ -27,7 +27,7 @@ export class FloatMinField
     
     //Create getMessage function return string.
     getMessage(){
-        return `${this.name} must be les than ${this.min}. You entered ${this.field}`;
+        return `${this.name} must be more than ${this.min}. You entered ${this.field}`;
     }
 }
 //Export class.

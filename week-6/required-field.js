@@ -12,12 +12,12 @@
 export class RequiredField {
     constructor(name, field){
         this.name = name;
-        this.field=field;
+        this.field = field;
     }
     //Create validate function.
     validate()
     {
-        return this.field = true;//will return true if this.field is a string.
+        return Boolean(this.field);//will return true if this.field is a string.
     };
 
     //Create getMessage function, returns string value of <name> is a required field.

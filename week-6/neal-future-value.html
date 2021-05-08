@@ -102,7 +102,9 @@
         <!--Card-title with span tag with id of "today" (will be bound to function to get day).-->
         <div class="card-title">Calculation as of <span id="today"></span></div>
         <!--Card-content with id of futureValue-->
-        <div class="card-content" id="futureValue"></div>
+        <div class="card-content">
+          <div class="assign-results" id="futureValue"></div>
+        </div> 
     </div><!--closes results card-->
   </div><!--close container-->
 <!--=====================================JavaScript==================================================-->
@@ -183,18 +185,18 @@ if (!rateValidator.validate()) {
     }
 }
 //--------------If monthlyPaymentValidator and rateValidator are true--------------//
-if (monthlyPaymentValidator.validate() && rateValidator.validate() == true) {
+if (monthlyPaymentValidator.validate() && rateValidator.validate()) {
     //Clear errorlogEl.innerHTML
     document.getElementById("errorLog").innerHTML='';
     /*Create a variable named futureValue. Call static function calculateFutureVale from FinanceCalculator 
     exported class. Pass in variables monthlyRate, rate, years*/
     let futureValue = FinanceCalculator.calculateFutureValue(monthlyPayment, rate, years);
     //Bind futureValue to futureValue div on results card.
-    document.getElementById("futureValue").innerHTML= futureValue;
+    document.getElementById("futureValue").innerHTML= FinanceCalculator.convertToCurrency(futureValue);
 }
 
 //--------------If monthlyPaymentValidator or rateValidator are false--------------//
-if (monthlyPaymentValidator.validate() || rateValidator.validate() == false) {
+if (!monthlyPaymentValidator.validate() || !rateValidator.validate()) {
     //Clear errorLog.innerHTML
     document.getElementById("errorLog").innerHTML='';
     /*Create a variable named errorLogMessage and build an unordered list of
