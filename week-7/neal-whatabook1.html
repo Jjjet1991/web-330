@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!--Title for page.-->
-  <title>WEB 231 – Enterprise JavaScript I</title>
+  <title>WEB 330 – Enterprise JavaScript II</title>
 </head>
 
 <body>
@@ -54,7 +54,7 @@
   </script>
   <script>
     //An event listener for DOMContentLoaded
-    window.addEventListener('DOMContentLoaded', function(event) {
+    window.addEventListener("DOMContentLoaded", function(event) {
 
       //Create variable fileName and assign it the string value of books.xml.
       let fileName = "books.xml";
@@ -69,10 +69,12 @@
 
           //Call loadBooks function passing in xmlBooks variable.
           loadBooks(xmlBooks);
-          //Add ISBN click event.
-          addISBNClickEvents();
+
+          addIsbnEvents();
+
         })
     });
+
 
     //Create loadBooks function
     function loadBooks(xml) {
@@ -87,7 +89,7 @@
             <th>Title</th>
             <th>Description</th>
             <th>Pages</th>
-            <th>Author</th>
+            <th>Authors</th>
         </thead>
         <tbody>`;
       //for..of statement iterating over xml information create with corresponding variable.
@@ -96,7 +98,7 @@
         let title = book.getElementsByTagName("title")[0].childNodes[0].nodeValue;
         let description = book.getElementsByTagName("description")[0].childNodes[0].nodeValue;
         let pages = book.getElementsByTagName("pages")[0].childNodes[0].nodeValue;
-        let author = book.getElementsByTagName("author")[0].childNodes[0].nodeValue;
+        let authors = book.getElementsByTagName("authors")[0].childNodes[0].nodeValue;
 
 
         //Creating tableData from the for of loop.
@@ -123,17 +125,25 @@ ${title}</td><td data-value="Description">${description}</td><td data-value="Pag
       let data = row.querySelectorAll("td");
 
       //Build HTML string for unordered list
-      let bookData = `<ul></ul>`
+      let bookData = `<ul style="list-style-type:none;">`
       for (let field of data) {
-        bookData += `<li><b>${field.dataset.value}</li>`
+        bookData += `<li><b>${field.dataset.value}: </b> ${field.innerText}</li>`
       }
+
+      bookData += `</ul>` //Close unordered list.
+
       //Bind bookData variable to selectedBook.innerHTML
       document.getElementById("selectedBook").innerHTML = bookData;
     }
 
-    //Create viewButtons variable.
-    let viewButtons = document.querySelectorAll("#bookTable tbody .isbn-link");
-    viewButtons[index].addEventListener("click", anchorClicked);
+    //Function of add ISBN event on click for the isbn links in the table body.
+    function addIsbnEvents() {
+      const viewButtons = document.querySelectorAll("#bookTable tbody .isbn-link");
+
+      for (let index = 0; index < viewButtons.length; index++) {
+        viewButtons[index].addEventListener("click", anchorClicked);
+      }
+    }
   </script>
 </body>
 

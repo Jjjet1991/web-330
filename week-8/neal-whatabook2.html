@@ -1,0 +1,150 @@
+<!--
+=====================================================
+; Title: Assignment 8.2 WhatABook Part 2
+; Author: Professor Krasso
+; Date 9 May 2021
+; Modified By: Jourdan Neal
+; Description: Using API fetch request. 
+=====================================================
+*/-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--Link to Site CSS.-->
+  <link rel="stylesheet" href="../site.css">
+  <!--Link to Theme CSS.-->
+  <link rel="stylesheet" href="../theme.css">
+  <!--Link for assignment CSS-->
+  <link rel="stylesheet" href="neal-whatbook2.css">
+  <!--Link for theme.js-->
+  <script type="application/javascript" src="../theme.js"></script>
+  <!--Link for Google Fonts-->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!--Font-awesome CDN link.-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!--Title for page.-->
+  <title>WEB 330 – Enterprise JavaScript II</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="app-header">Welcome to the WhatABook, Part 2 App!</div>
+    <div class="card">
+      <div class="card-title">Book Listing</div>
+      <div class="card-content" id="bookList"></div>
+    </div>
+    <!--=======================Return home anchor tag to index.html===================================-->
+    <br />
+    <div>
+      <a class="return-home" href="../index.html">Return</a>
+    </div>
+    <!--2nd card for selected book-->
+    <div class="card">
+      <div class="card-title">Selected Book</div>
+      <div class="card-content" id="selectedBook"></div>
+    </div>
+  </div>
+  <!--=======================JavaScript===================================-->
+  <script>
+    setSelectedTheme();
+  </script>
+  <script type="module">
+    //Import statement for HttpClient class.
+    import {
+      HttpClient
+    } from "./http-client.js";
+
+    //new HttpClient object assigned to "http" variable.
+    let http = new HttpClient;
+
+    //Create "isbns" variable and assign it array of ISBN numbers.
+    const isbns = [
+      '0345339681',
+      '0261103571',
+      '9780593099322',
+      '9780261102361',
+      '9780590302715',
+      '9780316769532',
+      '9780743273565',
+      '9780590405959',
+    ]
+    //Create params variable.
+    const params = {
+      "bibkeys": `ISBN: ${isbns.join(",")}`,
+      "format": "json",
+      "jscmd": "details"
+    };
+    //Using get function to get info from url. 
+    http.get("http://openlibrary.org/api/books", params).then(res => {
+        console.log(res);
+
+        document.getElementById("bookListing").innerHTML = buildHtmlString(res, "table");
+
+        addIsbnClickEvents();
+      })
+      .catch(e => {
+        console.log(e);
+      });
+    //getBooks function that accepts event.
+    function getBooks(e) {
+      e.preventDefault();
+
+      let self = this;
+
+      let isbn = self.innerText;
+    }
+    //create buildHTMLString function
+    function buildHtmlString(res, format) {
+      let tableString = `<table><tr><th>ISBN</th><th>Title</th><th>Description</th><th>Pages</th><th>Authors</th></tr>`;
+      let UrlString = '';
+      for (const key in res) {
+
+        if (res.hasOwnProperty(key)) {
+          let authors = [];
+          if (res[key].details.authors) {
+            authors = res[key].details.authors.map(function(author) {
+              return author.name;
+            })
+          }
+        }
+      }
+
+      let books = {
+        isbn: res[key].details.isbn_13 ? res[key].details.isbn_13 : book.details.isbn_10,
+        title: res[key].details.title,
+        description: res[key].details.subtitle ? res[key].details.subtitle : "N/A",
+        pages: res[key].details.number_of_pages ? res[key].details.number_of_pages : "N/A",
+        authors: authors.join(",")
+    }
+    console.log(books);
+
+    ulString += `<li><b>ISBN:</b> ${book.isbn}</li><li><b>Title:</b> ${book.title}</li><li><b>Description:</b> ${book.description}</li>
+                    <li><b>Pages:</b> ${book.pages}</li><li><b>Authors:</b> ${book.authors}</li>`;
+
+    tableString += `<tr><td><a href="#" class="isbn-link">${book.isbn}</a></td><td>${book.title}</td><td>${book.description}</td>
+                        <td>${book.pages}</td><td>${book.authors}</td></tr>`;
+        
+
+    //close unordered list and table
+    ulString += "</ul>";
+    tableString += "</table>";
+    }
+
+    //if statement checking the format variable
+    if (format = "table") {
+        return tableString;
+    } else {
+        return ulString;
+    }
+
+
+  </script>
+
+</body>
+
+</html>
