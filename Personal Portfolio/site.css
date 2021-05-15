@@ -1,91 +1,82 @@
-/*Index photo also bucket list page*/
-#indexPhoto{
-    background-image: url(images/type.jpg);
-    background-repeat: no-repeat;
-    background-size:100% 950px;
-    background-attachment: fixed;
-    }
-    /*About page background photo*/
-    #aboutPhoto{
-    background-image: url(images/compass.jpg);
-    background-repeat: no-repeat;
-    background-size:100% 950px;
-    background-attachment: fixed;
-    }
-    
-    /*Plain wood background photo*/
-    #projectsPhoto{
-    background-image: url(images/wood.jpg);
-    background-repeat: no-repeat;
-    background-size:100% 950px;
-    background-attachment: fixed;
-    }
+html{
+    overflow-x: hidden;
+}
 
-    /*Text for bucket list page*/
-    #bucketListText{
-    font-family: 'Special Elite', cursive;
-    color:whitesmoke;
-    margin:140px;
-    font-size: 20px;
-    line-height: 2;
-    }
+body{
+    background-image: url(./images/ivan-gromov-Y3vPEuNlf7w-unsplash\ \(1\).jpg);
+    width:100%;
+    height:100%;
+}
 
-    /*Text for index page*/
-    #indexText{
-    float:left;
-    margin-top:15%;
-    margin-left:10%;
+.navbar{
+    margin-top:15px;
+    height:100px;
+    font-size: 17px;
+    display:flex;
+    justify-content: space-evenly;
+}
+
+/*Card styling for width, margins, shadow*/
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0,0.2);
+    transition: 0.3s;
     width:600px;
-    font-family: 'Special Elite', cursive;
-    color:whitesmoke;
-    font-size:20px;
-    }
-    
-    h2{
-    font-family: 'Special Elite', cursive;
-    color:whitesmoke;
-    font-size:35px;
-    
-    }
-    
-    #signature{
-    font-family: 'Bad Script', cursive;
-    float:right;
-    }
-    
-    /* Styling for card*/
-    .card {
-    background-color: var(white);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0,0.2);
-    transition: 0.3s;
-    width:650px;
     margin: 3% auto 0;
-    padding:10px;
-    }
-    
-    /*Card w/ columns*/
-    .card {
-    background-color: var(white);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0,0.2);
-    transition: 0.3s;
-    width:650px;
-    margin: 3% auto 0;
-    padding:20px;
-    }
-    
-    /*Card styling for card-title.*/
-    .card-title {
-    font-family: 'Special Elite', cursive;
+    padding:2px
+}
+
+/*Card styling for card-title.*/
+.card-title {
     text-align :center;
     font-size: 2em;
-    background-color:white;
-    color: black;
+    background-color: var(--card-background-color);
+    color: var(--card-title-color);
     font-weight: 400;    
-    }
 
-    #footerText{
-        background-color:white;
-        padding:10px;
-        text-align:center;
-        }
- 
+}
+.card-content {
+    padding: 2px 16px;
+}
+
+
+#index-card{
+    margin-left:25%;
+    width:100%;
+    padding:25px;
+    font-family: 'Special Elite', cursive; 
+}
+
+#navbar{
+    background: none;
+    border-top: 3px solid black; 
+    border-bottom: 3px solid black;
+    margin-top:5px;
+    padding: 3px;
+    height:50px;
+}
+
+.header{
+    font-family: 'Arvo', serif;
+    background: none; 
+    color:black;
+    font-size: 1.15em;
+}
+
+#bucket-list{
+    background-image: url(./images/type.jpg);
+}
+
+
+
+h2{
+    font-size:2.3em;
+    text-decoration: underline;
+    font-family: 'Special Elite', cursive; 
+    text-align: center;
+}
+
+.card2 {
+    width:600px;
+    margin: 3% auto 0;
+    padding:2px
+}
