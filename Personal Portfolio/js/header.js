@@ -7,15 +7,53 @@ super();
 
 connectedCallback() {
 this.innerHTML = `
-<nav class="nav justify-content-center" id="navbar">
-<a class="header nav-link active" aria-current="page" href="index.html">Home</a>
-<a class="header nav-link" href="./about.html">About</a>
-<a class="header nav-link" href="#">Resume</a>
-<a class="header nav-link" href="./bucket-list.html">Bucket List</a>
-<a class="header nav-link" href="./projects.html">Projects</a>
-<a class="header nav-link" href="#">Databases</a>
-<a class="header nav-link" href="#">API Tests</a>
-</nav>
+
+<!--Header will change color and size of 1st letter-->
+<div style="margin:5px;">
+  <!--First Naem-->
+<h1 style="margin-left:15px;"><span style="font-size:75px;color:#00adb5">J</span>ourdan
+  <!--Last Night-->
+  <span style="font-size:75px;color:#00adb5">N</span>eal
+</div>
+
+<nav class="navbar navbar-expand-lg" style="background-color:#393e46;">
+      
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <!--Unordered list for navbar items-->
+  <ul class="navbar-nav mr-auto">
+
+      <!--1st NavBar link for Home-->
+    <li class="nav-item active">
+      <a class="nav-link" style="color:#f4f9f9;" href="./index.html">Home <span class="sr-only">(current)</span></a>
+    </li>
+
+    <!--2nd NavBar link for Home-->
+    <li class="nav-item">
+      <a class="nav-link" style="color:#f4f9f9;"href="./about.html">About</a>
+    </li>
+
+    <!--3rd NavBar link for Home-->
+    <li class="nav-item">
+        <a class="nav-link" style="color:#f4f9f9;" href="./resume.html">Resume</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" style="color:#f4f9f9;" href="./bucket-list.html">Bucket List</a>
+    </li>
+</ul>
+
+<ul class="nav navbar-nav navbar-right">
+<li class="nav-item">
+<a class="nav-link" style="color:#f4f9f9;" href="./projects.html">Projects</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" style="color:#f4f9f9;" href="./data.html">Databases</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" style="color:#f4f9f9;" href="./apiTesting.html">API Testing</a>
+</li>
+
+</ul>
+
 
 `;
 
