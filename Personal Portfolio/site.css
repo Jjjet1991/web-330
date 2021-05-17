@@ -1,92 +1,106 @@
-html{
-    overflow: auto;
-}
-#container{
+/*Container to fit each page in*/
+    #container{
     margin-top:50px;
     margin-left:100px;
     margin-right:100px;
     padding: 15px;
-}
-
-.card {
+    }
+/*Card styling*/
+    .card {
     background-color: var(--card-background-color);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0,0.2);
     transition: 0.3s;
     width:600px;
     margin: 3% auto 0;
     padding:10px;
-}
-
-.card-title{
+    }
+/*Card title*/  
+    .card-title{
     font-family: 'Varela Round', sans-serif;
     text-align: center;
     font-size:2.0em;
-}
-
-td {
+    }
+/*Table data cells*/
+    td {
     width:150px;
     text-align:center;
     border:1px solid black;
     padding:5px
-  
-}
-#link{
+    
+    }
+/*Position link column*/
+    #link{
     text-align:center;
-}
-
-.subhead{
+    }
+/*Subheading for classes in projects*/
+    .subhead{
     border:none;
     background-color: #aaaaaa;
-}
+    }
 
-table{
-      border-collapse:separate;
-                border-spacing:0 15px;
-}
+/*Table styling*/
+    table{
+    border-collapse:separate;
+    border-spacing:0 15px;
+    }
 
-th{
+/*Table header*/
+    th{
     width:150px;
     text-align:center;
     border:1px solid black;
     padding:5px;
-    background-color:#aaaaaa;
-
-}
-
-.page-title{
+    background-color:#aaaaaa;    
+    }
+    /*Page title--above card title*/
+    .page-title{
     margin-top:25px;
     text-align: center;
     font-size:5.5em;
     font-family: 'Varela Round', sans-serif;
     color:#393e46;
-}
-
-
-/*Style for anchor tag- unvisited link.*/
-a {
+    }
+    
+    
+    /*Style for anchor tag- unvisited link.*/
+    a {
     color: #eeeeee;
     text-decoration: none;
-}
-
-/*Style for anchor tag hover.*/
-a:hover {
+    }
+    
+    /*Style for anchor tag hover.*/
+    a:hover {
     background-color:#D6A800;
     ;
-}
-
-/*Style for anchor tag once visited.*/
-a:active {
+    }
+    
+    /*Style for anchor tag once visited.*/
+    a:active {
     color: #00adb5;
-}
- 
-button{
+    }
+    
+    /*Writing color inside button*/
+    button{
     color:white;
-}
+    }
 
-h2{
+    /*h2 heading style*/
+    h2{
     text-align:left;
     padding:25px;
     color:#00adb5;
     text-decoration: underline;
     
-}
+    }
+    
+    #buttonIndex{
+    color:white;
+    }
+    
+    #buttonIndex:hover{
+    background-color: lightblue;
+    color: #03506f;
+    }
+
+    
+
