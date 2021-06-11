@@ -10,7 +10,7 @@ this.innerHTML = `
 
 <!--Header will change color and size of 1st letter-->
 <div style="margin:5px;">
-  <!--First Naem-->
+  <!--First Name-->
 <h1 style="margin-left:15px;"><span style="font-size:75px;color:#00adb5">J</span>ourdan
   <!--Last Night-->
   <span style="font-size:75px;color:#00adb5">N</span>eal
@@ -46,7 +46,7 @@ this.innerHTML = `
 <a class="nav-link" style="color:#f4f9f9;" href="./projects.html">Projects</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" style="color:#f4f9f9;" href="./data.html">Databases</a>
+<a class="nav-link" style="color:#f4f9f9;" href="./neal-diagrams.html">Diagrams</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" style="color:#f4f9f9;" href="./apiTesting.html">API Testing</a>
