@@ -1,3 +1,13 @@
+<!--
+=====================================================
+; Title: Personal Portfolio
+; Author: Jourdan Neal
+; Date 16 May 2021
+; Modified By: Jourdan Neal
+; Description: Personal Portfolio
+=====================================================
+*/-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,26 +22,65 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <link href="https://fonts.googleapis.com/css2?family=Arvo&family=Special+Elite&display=swap" rel="stylesheet">
+  
+  <style>
+    div.gallery {
+      margin: 5px;
+      border: 1px solid #ccc;
+      float: left;
+      width: 180px;
+    }
+    
+    div.gallery:hover {
+      border: 1px solid #777;
+    }
+    
+    div.gallery img {
+      width: 100%;
+      height: 100px;
+    }
+    
+    div.desc {
+      padding: 15px;
+      text-align: center;
+    }
+    </style>
 </head>
 
 <header-component></header-component>
 
-<body>
-<div class="container">
-  
+<!--Container for projects-->
+<div class="container"> 
+  <!--Card for content-->
   <div class="card" style="width:600px;">
     <div class="card-title">API Testing</div>
-   <a href="https://placeholder.com/"><image src="https://via.placeholder.com/580x100"></image></a>
-   <br>
-   <a href="https://placeholder.com/"><image src="https://via.placeholder.com/580x100"></image></a>
-   <br>
-   <a href="https://placeholder.com/"><image src="https://via.placeholder.com/580x100"></image></a>
-    
-  <div>
-  </div>
-</div>
-</body>
+    <div class="card-content">
 
+      <!--!st gallery image-->
+    <div class="gallery">
+      <a target="_blank" href="api-testing/web-420-4.2-swagger.JPG">
+        <img src="api-testing/web-420-4.2-swagger.JPG" alt="" width="600" height="400">
+      </a>
+      <div class="desc">findAllComposers<br> Swagger Testing</div>
+    </div>
+    <!--2nd gallery image-->
+    <div class="gallery">
+      <a target="_blank" href="api-testing/web-420-4.2-soapUI(1).JPG">
+        <img src="api-testing/web-420-4.2-soapUI(1).JPG" alt="" width="600" height="400">
+      </a>
+      <div class="desc">findComposerById <br> SoapUI Testing</div>
+    </div> 
+      <!--3rd gallery image-->
+      <div class="gallery">
+        <a target="_blank" href="api-testing/web-420-4.2-soapUI(2).JPG">
+          <img src="api-testing/web-420-4.2-soapUI(2).JPG" alt="" width="600" height="400">
+        </a>
+        <div class="desc">createComposer <br> SoapUI</div>
+      </div>
+   
+
+  </div> 
+</div>  
 </div>
 <footer-component></footer-component>
-</html>
+
