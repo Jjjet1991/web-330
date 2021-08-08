@@ -24,36 +24,36 @@ this.innerHTML = `
 
       <!--1st NavBar link for Home-->
     <li class="nav-item active">
-      <a class="nav-link" style="color:#f4f9f9;" href="../index.html">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-link" style="color:#f4f9f9;" href="./index.html">Home <span class="sr-only">(current)</span></a>
     </li>
 
     <!--2nd NavBar link for Home-->
     <li class="nav-item">
-      <a class="nav-link" style="color:#f4f9f9;"href="../about.html">About</a>
+      <a class="nav-link" style="color:#f4f9f9;"href="./about.html">About</a>
     </li>
 
     <!--3rd NavBar link for Home-->
     <li class="nav-item">
-        <a class="nav-link" style="color:#f4f9f9;" href="../resume.html">Resume</a>
+        <a class="nav-link" style="color:#f4f9f9;" href="./resume.html">Resume</a>
       </li>
       <li class="nav-item">
-      <a class="nav-link" style="color:#f4f9f9;" href="../bucket-list.html">Bucket List</a>
+      <a class="nav-link" style="color:#f4f9f9;" href="./bucket-list.html">Bucket List</a>
     </li>
 </ul>
 
 <ul class="nav navbar-nav navbar-right">
 <li class="nav-item">
-<a class="nav-link" style="color:#f4f9f9;" href="../projects.html">Projects</a>
+<a class="nav-link" style="color:#f4f9f9;" href="./projects.html">Projects</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" style="color:#f4f9f9;" href="../neal-diagrams.html">Diagrams</a>
+<a class="nav-link" style="color:#f4f9f9;" href="./neal-diagrams.html">Diagrams</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" style="color:#f4f9f9;" href="../apiTesting.html">API Testing</a>
+<a class="nav-link" style="color:#f4f9f9;" href="./apiTesting.html">API Testing</a>
 </li>
 
 <li class="nav-item">
-<a class="nav-link" style="color:#f4f9f9;" href="../web-430/neal-tech-value-stream.html">DevOps</a>
+<a class="nav-link" style="color:#f4f9f9;" href="./neal-tech-value-stream.html">DevOps</a>
 </li>
 
 </ul>
