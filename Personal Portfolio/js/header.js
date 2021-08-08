@@ -43,17 +43,17 @@ this.innerHTML = `
 
 <ul class="nav navbar-nav navbar-right">
 <li class="nav-item">
-<a class="nav-link" style="color:#f4f9f9;" href="./projects.html">Projects</a>
+<a class="nav-link" style="color:#f4f9f9;" href="../projects.html">Projects</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" style="color:#f4f9f9;" href="./neal-diagrams.html">Diagrams</a>
+<a class="nav-link" style="color:#f4f9f9;" href="../neal-diagrams.html">Diagrams</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" style="color:#f4f9f9;" href="./apiTesting.html">API Testing</a>
+<a class="nav-link" style="color:#f4f9f9;" href="../apiTesting.html">API Testing</a>
 </li>
 
 <li class="nav-item">
-<a class="nav-link" style="color:#f4f9f9;" href="./web-430/neal-tech-value-stream.html">DevOps</a>
+<a class="nav-link" style="color:#f4f9f9;" href="../web-430/neal-tech-value-stream.html">DevOps</a>
 </li>
 
 </ul>
