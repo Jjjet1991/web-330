@@ -24,20 +24,20 @@ this.innerHTML = `
 
       <!--1st NavBar link for Home-->
     <li class="nav-item active">
-      <a class="nav-link" style="color:#f4f9f9;" href="./index.html">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-link" style="color:#f4f9f9;" href="../index.html">Home <span class="sr-only">(current)</span></a>
     </li>
 
     <!--2nd NavBar link for Home-->
     <li class="nav-item">
-      <a class="nav-link" style="color:#f4f9f9;"href="./about.html">About</a>
+      <a class="nav-link" style="color:#f4f9f9;"href="../about.html">About</a>
     </li>
 
     <!--3rd NavBar link for Home-->
     <li class="nav-item">
-        <a class="nav-link" style="color:#f4f9f9;" href="./resume.html">Resume</a>
+        <a class="nav-link" style="color:#f4f9f9;" href="../resume.html">Resume</a>
       </li>
       <li class="nav-item">
-      <a class="nav-link" style="color:#f4f9f9;" href="./bucket-list.html">Bucket List</a>
+      <a class="nav-link" style="color:#f4f9f9;" href="../bucket-list.html">Bucket List</a>
     </li>
 </ul>
 
@@ -50,6 +50,10 @@ this.innerHTML = `
 </li>
 <li class="nav-item">
 <a class="nav-link" style="color:#f4f9f9;" href="./apiTesting.html">API Testing</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" style="color:#f4f9f9;" href="./web-430/neal-tech-value-stream.html">DevOps</a>
 </li>
 
 </ul>
